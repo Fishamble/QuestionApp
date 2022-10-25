@@ -1,0 +1,715 @@
+What is a symbol?
+Symbol is a built-in object which returns a symbol primitive. This symbol is guaranteed to be unique.
+
+What is implicit type conversion?
+Implicit type conversion is the automatic conversion of value from one data type to another. 
+
+What is dynamic typing?
+Dynamic typing means that an engine assigns a type to variables at run time. The type of a variable is assigned at the moment of the variables initialisation. Therefore type annotation is not required.
+
+What is type annotation?
+Type annotations are used to indicate the variable types.
+
+What is the difference between let and var?
+The main difference is scoping rules. Variables declared with var are scoped to the immediate function body, while let/const variables are scoped to the immediate enclosing block. 
+Var variables are hoisted and initialized to undefined. let variables are not initialized until their definition is evaluated. Accessing them before the initialization results in a ReferenceError. The variable is said to be in “temporal dead zone” from the start of the block until the let is initialized.
+At the top level, let, unlike var, does not create a property on the global object. let foo = ‘foo’; window.foo; // undefined 
+
+What is the ternary operator?
+The ternary operator, AKA the conditional operator, is a one line if-else expression.
+
+Difference between ‘for-in’ and ‘for of’?
+Both are looping constructs.
+‘for in’ iterates over all enumerable property keys of an object.
+‘for of’ iterates over the values of an iterable object. 
+ 
+What are reference types?
+Reference types include arrays, objects and functions.
+
+What is a primitive data type?
+In js a primitive data type is data that is not an object and has no properties or methods.
+
+What are the primitive data types?(7)
+string, number, boolean, null, undefined, symbol, Bigint,
+
+What does mutable mean?
+Mutable is a type of variable that can be altered once created. In JS, only arrays and objects are mutable. Primitive values are immutable. 
+
+What are the falsey values? (7)
+false, null, undefined, ‘’ (empty string), 0, -0, Nan
+NOTE empty array [] and empty object {} are truthy.
+
+What is the difference between null and undefined?
+Undefined means a variable has been declared, but has not yet been initialized with a value. Null is assigned to a variable as a representation of nothing, or no value. Undefined is a type, whereas null is an object. Therefore undefined == null (true when using the equality operator), but undefined === null (false when using the strict equality operator) 
+typeof null returns object due to legacy and should be considered a bug.
+
+What is hoisting?
+Hoisting refers to the JS engine moving all declarations to the top of the current scope. Therefore var variables and function declarations can be used before they are declared in the code. In the case of function declarations this allows for more readable code, in a top to bottom manner, without having to worry about the order in which they are declared.
+let and const variables are hoisted, but not initialized. Resulting in a referenceError if there is an attempt to use let variables before declaration. Const variables will return a syntax error.
+
+What is short circuiting?
+Short circuiting is the evaluation of an expression from left to right with the && and || operators. Once the conditions are met the expression will short circuit and return that value. The || operator will return the first truthy value, or the last(if they are all falsey). The && operator will return the first falsey value, or the last value(if they are all truthy) 
+We can use the OR operator to set default values(because it returns last value when all are true)
+We can use short circuiting instead of if statements, by using the AND operator to execute code in the second operand if the first one is true.
+
+Pass by value pass by reference?
+Pass by value is used for primitive types. When a variable(A) is assigned to another variable(B), a new space in memory is allocated to store the value of A. B now contains a pointer address to a different memory location than A. Even though both variables hold the same value, they are pointing to different memory locations. Which means we can change the value in either, without affecting the other. 	
+Pass by reference is used for non primitive types. When an object is passed to a function, that object will be modified. Avoid this with iterable objects, ie arrays, by using the spread operator.  Also this is why array can be const variables. The address value stored in memory does not change. 
+
+Stack and heap?
+Primitive types are stored on the stack. Reference types are stored on the heap.
+The stack is faster but is limited in size. The heap is larger, but is slower to access. The heap is a large, mostly unstructured region in memory.
+When a reference type is added to the heap, a pointer is stored in the stack which points to the object in the heap.
+
+What is the call stack?
+A call stack is a single threaded mechanism for an interpreter to keep track of its place, in a script that calls multiple functions. What function is currently being run, and what functions are called from within that function. A call stack is a data structure which uses the last in, first out principle to temporarily store and manage function invocations.
+
+What is a stack overflow?
+A stack overflow occurs when a recursive function is invoked without an exit clause.
+
+What is recursion?
+In programming recursion occurs when a function calls itself. The function repeatedly calls itself until a certain requirement is met. Then it steps back, returning each value to the iteration above it. 
+Advantages of recursion is that it involves less code, which is easier to read.
+Disadvantages are that it can be more difficult to debug because it is harder to follow the logic. Performance, because more memory is required to call functions, over just using a loop.
+
+What is a framework?
+A framework is a platform that provides a foundation for developing software applications. Think of it as a template to a working program that can be selectively modified by adding code. It uses shared resources, libraries, image files and reference documents, and puts them together in one package.
+
+What  is a library?
+A library is a collection of prewritten functions, or code, which a programmer can use to avoid “reinventing” the wheel. This abstracts the implementation of these functions. 
+
+What is a module?
+A module is a collection of related code, which can be used to break down larger programs into more manageable chunks. A module is basically a single purpose cd ..
+library. A library contains many modules, but they are usually connected by some theme.
+
+What is memoization?
+Memoization is the storing of a function's return value, so if the same parameters are passed again then the function does not need to recompute the result. Although memoization saves time, it uses more memory.
+
+What is a class?
+A class is a template for creating an instance of an object, providing initial values for attributes and implementations of behavior.
+
+What is oop?
+OOP is a programming paradigm which provides an easily comprehensible method for modeling complicated systems of real world data into manageable software solutions. paradigm - A pattern or model. 
+
+What is an object? redo***
+An object is a data structure which combines related data, alongside methods of manipulating that data.
+Instance properties
+Instance methods
+Typically instance methods will use instance properties to achieve a result.
+Getters and setters are used to define methods on a class, which are then used as if they are properties. They look like properties, but are actually a method of that class. keywords get and set
+
+What is polymorphism?
+Polymorphism is an oop concept that refers to the ability of a variable, function or object to take on multiple forms. That is objects of classes within the same hierarchical tree, may possess functions bearing the same name, but each having different behaviors. Move() function for a horse could be trotting, but a fish could be swimming. A developer can cut down the code by creating a sort of generic class, and later create sub classes with certain unique attributes and behaviours.
+
+What is inheritance?
+Inheritance is a way to reuse existing code. A derived class inherits from a base class, such that the 
+derived class will have access to the base classes attributes and methods.
+
+What is encapsulation?
+Encapsulation is the bundling of data, along with the methods that operate on that data, into a single unit, or object.  Literally to enclose within a capsule. That is to gather all properties and methods and bundle them together.
+
+What is composition?
+composition- to compose. Everything in JS, other than primitives, are objects. High level objects, such as functions, are quite complex in nature. To simplify such complex objects, many small objects are composed together. 
+
+How does JS implement classes?
+In JS a class is just syntactic sugar for constructor functions. 
+Student.prototype.getSum = function(){}
+Instead of using prototype to add a function to a class definition, we add it after the constructor function within the class definition.
+
+The new keyword does three things
+Creates a new empty object.
+Sets the value of the.this keyword to be the new empty object.
+Calls the constructor method.
+
+What is a static method?
+Has the static keyword prepended to itself. Static methods are defined within a class and are bound to that class. Static methods cannot be accessed through instantiated objects. A static method does not require an instance of the class to be created in order to be used. 
+
+What are children classes/sub classes?
+are classes which extend a parent class
+
+What are the ways to create an object?
+There are three ways to create an object in js. Use the new keyword; object literal notation; object.create
+the advantage of using Object.create is that we can specify the prototype for that object. 
+var instance = Object.create(Object.prototype);
+
+What are access modifiers?
+An access modifier is a keyword prepended to a class property, which defines where that property can be accessed. public, private(only within the class) and protected(class or any extending class).
+
+How can primitive types have methods?
+JS takes  primitive types and wraps them temporarily in an object. This way we can use methods and properties on those primitive types. Null and undefined do not have a wrapper object.
+
+What is the super() keyword?
+When using extends to extend the functionality of a class, if we exclude the constructor the derived class will invoke the constructor of its parent class. If we intend to add unique properties to the derived class, we can achieve this by creating its own constructor and invoking super() to inherit the properties of the parent class.
+
+prototype stuff?
+User.prototype.login = function (){}
+// adds a method login, to the User class
+function  Admin(userName, email){	
+	User.call(this, userName, email) }
+.call extends the properties of the parent user class. ie same as super function.
+Admin.prototype = Object.create(User.prototype);
+// How methods are inherited in the prototype chain.
+
+What are object prototypes?
+Every object in js inherits properties from a prototype. If we attempt to access a property, or method, which does not exist in that objects definition, the js engine looks at the objects prototype, and then the prototypes prototype, all the way up the prototype chain to the Object.prototype. Every prototype inherits from Object.prototype
+Functions
+
+What is a constructor function?
+A constructor function is a special method within an object class definition, which defines and initializes the properties of that object using the “this” keyword. The method is only invoked once, when the object is first instantiated. 
+ 
+What is a factory function? 
+A factory function creates an object and returns it. Factory functions are similar to constructor functions, however, they do not require the use of the new keyword when instantiating the object, or the this keyword when referencing inner values. Factory functions differ from regular functions in that they always return an object.
+
+What is a higher order function?
+A higher order function is a function which accepts functions as parameters, and/or returns a function. Higher order functions help reduce code duplication and favor the single responsibility principle.
+A first order function only accepts/returns primitives or objects. 
+
+What is a callback function?
+A callback function is a function which is passed to another function as a parameter. This function is then invoked within the calling function, to complete some kind of routine or action. Javascript is a scripting language based on events. Callbacks are a technique of ensuring that a particular code does not run until another code has finished execution.
+
+What is callback hell?
+Callback hell is nested callback functions, with each callback depending/waiting for the previous callback result before operating. This results in a pyramid structure of nested functions which affects the readability and maintainability of the code.
+
+What is the difference between a function declaration and function expression?
+Function declaration is when a function is given a name.(FD are hoisted, so can be invoked before the declaration) Function expressions do not have a name and do not get hoisted. Function expressions are invoked and forgotten immediately, therefore they avoid polluting the global scope.
+(Rule) The function declaration in a statement always starts with the keyword “function”, otherwise it is a function expression.
+function addUp(value1)    // Function declaration
+const addUp = function(value1)  // Function expression
+Function expressions can be declared to a variable and therefore they will have a .name property.
+
+Benefits of function declaration Vs function expression?
+Function expressions do not pollute the global space. Function declarations provide more detail and context for error messages or debugging.  Function declarations are used for recursion. Function expressions can be passed as an argument to another function, but function declarations can not.
+
+Named function expression?
+Is when the expression has the name specified. This is useful for debugging.
+
+Parameter vs argument?
+A parameter is a variable in a function definition. An argument is a value passed during the function's invocation.
+
+What is a predicate function?
+A predicate function is a function which returns a boolean, either True or False.
+
+What is a pure function?
+A pure function is a function which has no side effects, that is  to say the function does not change any variables, or objects outside its own scope; and it will always return the same result when supplied with the same arguments. 
+Pure functions are very easy to test, which is their main advantage.
+
+What is an arrow function?
+An arrow function is a way to write anonymous function expressions with a concise syntax. If there is only one parameter the parenthesis can be omitted. And if the function only contains one statement then the return statement and curly braces can be omitted. 
+
+What is an anonymous function?
+An anonymous function is a function without a name. It will not have a .name property unless inferred by the engine from the variable holding the function. AKA a lambda function
+((((An anonymous function does not create its own execution context, but takes it lexically.(does not create its own this, but uses this from the immediate outer scope.????)))))
+
+What is a self invoking function?
+An immediately invoked function expression is Invoked as soon as it is defined. This avoids polluting the global namespace. AN IIFE can also be used to initialize an app. ie event listeners.
+
+What are void functions?
+Void functions are functions which do not return a value.
+
+What is execution context?
+Global execution context
+Execution context is the environment a function executes in; that is, variable scope, function arguments, and the value of the ‘this’ object. Each time a function is invoked it creates a new execution context. In the global scope, the value of ‘this’ is always the window object. If the function is a method, the value of this is the object that the method belongs to. Exiting a local execution context is achieved with the return keyword. The parsing engine uses the call stack to determine which execution context to enter or exit.
+
+What is a helper function?
+A helper function is a function that performs part of the computation of another function. They make your program easier to read, by giving descriptive names to computations. 
+Scope and closures
+What is scope?
+Scope is the area in which a given function or variable is accessible to other code. Inside a function is local scope, outside a function is global scope. Each time a function is invoked it creates a new scope.
+
+What is lexical scope? 
+Lexical scope does not care where the function is invoked.
+Lexical scope is the definition area of an expression. ie the place in which the item was created. The place an item gets invoked, or called, is not necessarily the items lexical scope. Instead an items definition space is its lexical scope.
+Lexical scope refers to setting the scope, or range of functionality, of a variable. 
+Lexical scope means that in a nested group of functions, the inner functions have access to the variables and other resources of their parent scope. This means that the child functions are lexically bound to the execution context of their parents. Every time the javascript engine creates an execution context to execute the function, or global code, it also creates a new lexical environment to store the variables defined in that function during the execution of that function.
+In lexical scope a child can access its parent scope and global scope, but a parent cannot access the child scope. 
+CODE>>BLOCK>>FUNCTION>>GLOBAL
+
+What is a closure? 
+A closure is the encapsulation of a function, together with references to the variables within that function's  lexical scope. An example of this is when a higher order function(we will call foo), returns a function(we will call bar) and it is assigned to a variable. When the function bar is invoked for the first time, it has access to foo’s captured variables, as they were at the time that foo was executed. In subsequent invocations, bar will have access to the closure variables, as they were at the time the previous execution of bar ended.
+Closures are stored in the heap memory, rather than the stack memory, and as such are stored indefinitely, until required or deleted by garbage collection.
+
+Closures is the JS engine preserving the scope chain of an inner function. That is to say, when an inner function is executed, it has access to its enclosing functions variables, at the time the enclosing function was executed. 
+
+What are the benefits of closures?
+Closures prevent leaking, or exposing data where it is not needed. Therefore an inner function has access to data defined in its enclosing function, but the enclosing function does not have access to the inner functions data.  
+
+What is a captured variable?
+A captured variable is a variable from a functions lexical scope, which is captured as part of a closure.
+
+What is a block statement?
+Block statements such as if, while, for and switch do not create a new execution context. Contrary to the var keyword, let and const do create local scope inside block statements. 
+
+What is synchronous code?
+Synchronous code is code which runs one statement at a time. This is the same as saying js is a single threaded code.  
+
+What is asynchronous code?
+Synchronous code is code which runs one statement at a time. If a particular statement requires time to perform its action, this results in blocking code, which stalls the program until the statement has finished executing. Asynchronous code solves this problem, by allowing the program to continue execution in one thread, while a concurrent thread waits for the result of the asynchronous statement. Examples are callbacks, promises, async/await
+ 
+What is blocking code?
+Blocking code is when a statement is waiting for a return(ie from fetch)
+
+What is a promise in JS?
+In theory a promise is a placeholder for an asynchronous task which is not yet complete. In practice a promise is an object which has two properties, state and result. The state property can be either pending, fulfilled or rejected. When a promise is pending the result property is undefined; when it is fulfilled the result property is a value; when it is rejected, the result property is an error object.    
+
+What is Async/Await?
+The Async keyword before a function means that a function returns a promise. The await keyword only works inside Async functions, and makes JS wait until that promise settles and returns its result
+
+What is the window object in JS?
+The window object is the global object when JS runs in a browser.
+The window object represents an open window in a browser. All global objects, functions and variables are members of the window object. Global variables and functions are properties of the window object. The document object is a property of the window object, hence window.document.queryselector is the same as document.queryselector. In a tabbed browser each tab is represented by its own window object. Therefore the global window object, as seen by javascript code, represents the tab in which the code is running. That said, some properties still apply to the overall window. resizeTo() innerHeight.
+var statements and function declarations at the top level create properties of the global object. Let and const declarations never create properties of the global object.
+
+The global object vs global objects(s)?
+global objects refer to objects in the global scope. vs window object
+
+Window vs viewport vs document?
+viewport is the area where things are visible. The document can be larger than that and you will see scroll bars if so. 
+
+What is the DOM?
+The DOM is a web API for HTML/XML web documents, which represents the document as a tree-like structure. Each branch of the tree ends in a node, and each node contains objects. These objects can be manipulated, so that programs can change the document structure, style and content. 
+The DOM represents the document as nodes and objects.
+The DOM is built using multiple APIs acting in unison.
+
+Difference between a NodeList and HTMLCollection?
+HTMLCollection  only contains element nodes. A NodeList can contain any node type.
+HTML collections must be converted to an array using .from() before iteration.
+
+What is the difference between a node and an element?
+An element is a node of a particular type.(ie NODE.ELEMENT_NODE). Other node types include document, comment, text etc
+In simple terms an element is a node written using a tag in the HTML document. <p> <head> etc.
+<!DOCTYPE html>    <!--this comment –!> document type, comments, text nodes are not elements because they are not written with tags.
+CSS/HTML
+
+What is an element?
+A HTML element is an individual component of a HTML document. An element is the collection of a start tag, its attributes, an end tag and everything in between.
+
+What are attributes?
+Attributes are additional information about HTML elements, which are specified within the elements start tag. eg src alt href class id usually come in name=”value” pairs.
+
+What is an attribute selector?
+The CSS attribute selector matches elements based on the presence or value of a given attribute.  
+p[VarTitle] { color:red} matches <p> elements with a VarTitle attribute.
+
+What are data attributes?
+Data attributes are ones which the user creates and allows the storing of meta data (extra information) on a standard HTML element. Any attribute that starts with ‘data-jp. Retrieve in JS using element.datset.jp(note the data from data-jp is missing) element.dataset.term
+
+What is specificity?
+Specificity is the rules(algorithm) used by a browser to decide which css declaration is most relevant to an element, which in turn determines the property value to apply to that element.
+inline style>id>class/attribute>tag 
+!important overrides specificity
+
+What is the difference between margin and padding?
+Padding is included within the click region and background color/image, but margin is not.
+Vertical margins auto collapse, but paddings do not. Consider two elements, one above the other. If both have a padding of 1em, they will be 2ems apart. However if both have a margin of 1em, the margin will auto collapse, resulting in them being only 1em apart.
+
+What is semantic html?
+A semantic element clearly describes its meaning to the browser and the developer. 
+Header, footer, nav, aside, section, main, article, table.
+Non semantic - div, span,
+ 
+What is the box model?
+A web browser renders elements as a rectangular box. The size of this box depends on the css properties of its content, such as the content itself, the margin, border and padding.  
+
+Box sizing?
+content box only includes the element within the width and height
+border box the padding and border will be included within the width and height.
+  
+How to align a block element inside another element?
+inline - Do not start on a new line and only take up as much width as its content.  Width and height properties will have no effect. span - a - img 
+inline block - Similar to block, but you can set width and height properties.
+block - Starts on a new line, but takes up the entire available width.
+
+Difference between Static, Relative, Absolute and Fixed position?
+static - default
+fixed - positioned relative to the viewport. WIll stay in the same position even if the page is scrolled.
+relative - relative to its normal position within the document flow
+absolute - relative to its closest relative positioned ancestor element. If it has no positioned ancestor it uses the doc body.
+inset: shorthand for position (top right bottom left)
+
+Difference between visibility:hidden; and display:none?
+Display none completely removes the element from the document flow. Visibility hidden leaves the element, it continues to take up space, but its contents are not seen.
+
+What is BEM?
+Block - Element - Modifiers
+Block - should represent a block of design, such as a nav, header, footer
+// should use a hyphen delimiter    .stick-man
+Element - individual elements which make up the block
+// two underscores .stick-man__head
+Modifiers - .stick-man--blue
+// two hyphens
+
+CSS grid.
+grid-template-columns: repeat(12,fr);
+gap:10px;
+Grid items
+grid-columns: 2/6      -- Places an item between 2nd and 6th column on the grid.
+grid-row:2     -- Places an item on the second row.
+Responsive images
+
+What are the common breakpoints?
+Common breakpoints are 320px — 480px for mobile devices, 481px — 768px for iPads & tablets, 769px — 1024px for small screens like laptop, 1025px — 1200px for large screens like Desktops, and 1201px and above for extra large screens like TV.
+const size = {
+  mobileS: '320px',
+  mobileM: '375px',
+  mobileL: '425px',
+  tablet: '768px',
+  laptop: '1024px',
+  laptopL: '1440px',
+  desktop: '2560px',
+};
+const device = {
+  mobileS: `(min-width: ${size.mobileS})`,
+  mobileM: `(min-width: ${size.mobileM})`,
+  mobileL: `(min-width: ${size.mobileL})`,
+  tablet: `(min-width: ${size.tablet})`,
+  laptop: `(min-width: ${size.laptop})`,
+  laptopL: `(min-width: ${size.laptopL})`,
+  desktop: `(min-width: ${size.desktop})`,
+  desktopL: `(min-width: ${size.desktop})`,
+};
+
+What is node.js?
+node.js is a cross-platform runtime environment for javascript, which allows js to be run outside of a browser.
+global object object instead of the window
+commonjs modules instead of ES6 modules
+instead of import xxxxx from  yyyyyy 
+we use
+const os = require(‘os’); the Operating system object.
+const path = require(‘path’);
+__dirname  
+__filename 
+What is LTS 
+Long term support version of node. The release which is maintained for a longer period of time.
+
+What are dependencies?
+A dependency is a library, package or a piece of code which is required to run another.
+
+What is a build tool?
+A build tool is an application which automates the creation of an executable application from source code. Building incorporates compiling, linking dependencies and packing the code into a usable or executable file. 
+
+What is a programming standard?
+A set of rules, techniques and best practices to create cleaner, efficient, more readable code. These rules result in a uniform appearance to code written by different engineers.
+VSCode Emmet
+div.purple                          creates <div class=’purple’>
+div.class1.class2#idthree 
+.class will auto create a div
+button[type=”button”]  => <button type=”button”>
+div.purple>span.cyan <dic class= “purple”><span class=”cyan”></span></div>
+header>nav>ul>li*3.class${anything here will populate the lis$}
+$ sign above will add auto numbers 
+ 
+Naming?
+boolean variables are usually prefixed with is or has.
+functions should be named with imperative verbs. ie words that give an order or command. give do take close make 
+define functions at the top of file, function or class.
+class names use PascalCase - begin with a capital letter
+Database
+What is a database schema?
+A schema is a blueprint of a relational Database design. Schemas are usually represented as a visual design, which communicates the relationship of the various elements. 
+
+Vertical vs horizontally scalable?
+Vertical means the DB can be scaled on a single server by adding more resources(RAM CPU)
+Horizontal means the DB can be scaled by adding more servers to the DB.
+
+What is a MVP?
+Minimum viable product.
+
+What is POC?
+Proof of concept
+
+What is CDD?
+Component driven development. The process of structuring an application around modules or components. Each component can be added or removed without causing issues in a production environment.
+
+What is JAM stack?
+Javascript + API + Markup
+
+What is micro frontend architecture?
+Combining multiple front end frameworks together.
+
+What is DBMS?
+Database management system.
+
+What is CRUD?
+Create, read, update, delete.
+
+What is a progressive web app?
+PWA are websites that look and behave as if they are a mobile app in that they can function without an internet connection. A progressive web app is a type of software app delivered through the web, which is intended to work on any platform, through a web browser. Alternative to native apps.
+
+What is SSR?
+Server side rendering refers to an application's ability to render the webpage on the server, rather than rendering it in the browser. When a website's JS is rendered on the server, a fully rendered page is sent to the client, and the client's js bundle engages and enables the SPA framework to operate.
+
+What is bundling? bundle 
+JS bundling is an optimization technique used to reduce the number of server requests for JS files. Bundling accomplishes this by merging multiple JS files together into one file to reduce the number of page requests.
+
+What is webpack?
+Webpack is a static module bundler. It bundles many js modules into one. Also uses loaders to turn other file types into modules.
+Webpack is a module bundler, its main purpose is to bundle js files, but it can also support assets such as images, fonts and stylesheets
+
+What is a loader?
+Asset resource loader. Loaders turn non js files into modules, so they can be imported into our js file, and then copied into the dist folder.
+
+What is a plugin?
+A plugin is a software add-on that is installed on a program, enhancing its capabilities.
+Plugins do extra work which loaders cannot do. HTMLwebpack plugin dynamically creates a html file
+
+What is a package?
+A package is a directory(or project) that has a package.json file used to record information about it.
+A package is a container which organises a set of related classes and interfaces. Conceptually you might think of packages as folders on a computer. 
+
+What is a package manager? NPM YARN(yet another resource negotiator)
+A package manager is a tool used to automatically find, download, install, configure, upgrade and uninstall a computer’s packages/dependencies.
+npm allows the installation of packages both globally and locally. 
+
+What is a package registry? NPM registry GITHub packages
+ A package registry is a database for thousands of packages.(libraries, plugins frameworks, tools) A packet registry is the place packages get published to and installed from. 
+
+What is a toolchain?
+A toolchain is a set of tools or utilities that converts source code to something that can be executed on. Application of toolchains include -Scaling to many files and components -Using third party libraries. npm yarn -Live editing css and JS in development. -optimizing the output for production
+Create React APP - for SPA
+gatsby - static website
+next.js - server rendered with node.js
+Neutrino - Nx - Parcel - Razzle
+
+What is GSAP?
+GreenSock animation platform is a library used to create robust timeline based animations.
+
+What is a CLI?
+A command line interface is a command line program that accepts text input to execute operating system functions.
+
+What is SDK?
+Software development kit. AKA devkit.
+The SDK is a set of software building tools for a specific platform, including building blocks, code libraries, framework. SDKs provide tools that enable devs to build software apps faster and in a more standardised way.
+
+What is an API?
+An API is a set of rules which govern how two applications share resources. A client  application sends a request to the server specifying a URL as an endpoint. The API uses the URL to retrieve the specified resources. 
+
+What is an API endpoint?
+An API endpoint is a digital location(typically a URL) where an API receives requests about a specific resource on the server. 
+
+What is a REST API?
+Representational state transfer.
+A rest API(AKA RESTful API) is an API that conforms to the constraints of the REST architectural style and allows for interaction with RESTful web services.
+GET POST PUT PATCH DELETE
+An important note is that restful architecture is stateless. That is the two parties do not need to store any information about each other. Every request-response cycle is independent, leading to predictable communication.
+
+URI vs URL vs URN?
+Uniform resource identifier/locator/name 
+URI is the id of a resource
+
+What is CORS?
+CORS stands for cross origin resource sharing. It is a HTTP based mechanism that allows restricted resources on a web page, to be requested from another domain, outside the domain from which the first resource was served.  
+
+What is AJAX?
+Asynchronous javascript and xml. (name is misleading - JSON/plain text as common as XML) 
+AJAX allows web pages to be updated asynchronously, by exchanging data with a web server behind the scenes. This means that it is possible to update parts of a web page, without reloading the whole page. 
+
+What is a CMS?
+A content management system is software to build a website without having to code.
+wordpress, drupal, webflow
+
+What is a static website generator?
+A static website generator is an alternative to a CMS. They are a tool to build a html page using raw data and templates. 
+
+What is CDN?
+Content delivery network. A geographically distributed group of servers which distribute content from an origin server by caching content close to end users. It allows us to load a library from the web.
+
+What is a polyfil?
+A polyfill is a piece of code used to provide modern functionality on older browsers which do not natively support it.
+
+What is a transpiler? 
+Babel. A transpiler is software that translates source code to another source code. Transpiling is a specialised type of compilation and it has different meanings in different contexts. It can parse modern code and rewrite it using older syntax constructs.
+
+What is CI/CD pipeline?
+Continuous integration/ continuous deployment pipeline is a series of steps which must be performed in order to deliver a new version of software. building testing and deploying.
+
+What is agile?
+Agile is an iterative approach to software development projects. Instead of going for one big launch, an agile team delivers work in small, but consumable increments.
+
+What is scrum?
+Scrum is a structured framework for product development that is frequently used by agile software development teams.
+
+What is microservices architecture?
+Microservices allows for a large program to be separated into smaller parts, with each part having its own realm of responsibility. 
+
+What is SaaS?
+Software as a service.
+
+What is CRM?
+Customer relationship management software
+
+What is AWS?
+Amazon web service is a cloud computing platform
+
+What is Terraform?
+Terraform is an” infrastructure as code” tool, similar to AWS cloudformation, that allows you to create, update, and version your AWS infrastructure.
+
+What is IAC?
+Infrastructure as code
+
+What are XSS attacks?
+Cross site scripting.
+
+What is yoast?
+yoast is a WordPress plugin which helps a site perform better in SEO.
+
+What is flux?
+Flux is a collection of tools for keeping Kubernetes clusters in sync with sources of configuration (like Git repositories), and automating updates to configuration when there is new code to deploy.
+
+What does IC stand for?
+Individual contributor - someone not leading others
+
+What MR PR?
+Merge request/ pull request.
+
+What is a modal?
+A modal is a popup web page element that displays in front of and deactivates the rest of the page
+
+Development>staging>production?
+Development is when cod is being written.
+Staging is testing and quality assurance
+Production is when a project has been released public consumption.
+
+What is a design pattern?
+Design patterns are reusable solutions to commonly occurring problems in software design.
+
+What is an anti pattern?
+Opposite of a design pattern. Represents bad practice. 
+
+MVC Model view controller?
+Model : Contains all the code that saves and manages data.
+View : Contains all the code that manages visuals.
+Controller : Connects model and view together.1) responds to events from the view.  2) Tells the model to change its data and the view to re render its data.  model and view never interact with each other.
+ 
+
+What is a design system?
+A design system is a complete set of reusable components, allowing applications to be built at scale and providing a consistent user experience. googles Material UI, Shopify Polaris.
+
+Use strict?
+Use strict enables strict mode. In strict mode, undeclared variables may not be used. This also means that mistyping a variable name will throw an error instead of  creating a new variable. Using the delete keyword to delete a variable, or object, is not allowed.
+In a function in strict mode, ‘this is undefined.
+
+Explain the “this” keyword?
+The ‘this’ keyword refers to the object that the function is a property of.
+function dosomething() {
+	console.log(this)  // window object in a browser
+}
+dosomething();
+In the above example the function is a property of the window object ie the global object. 
+When a function is invoked, the object before the dot is the value of this. If there is no object before the dot, the value is the global object.
+
+
+What is minified?
+Minification is the process of minimizing code, markup in web page and script files. This helps to improve loading times. This achieved by removing whitespace, comments, 
+
+Throw/catch?
+Within an async function throw new Error(‘cannot fetch data’)
+then catch it outside the function
+
+Object shorthand notation?
+When a property and key are the same, we can shorten the object by only including the word once.
+
+Localstorage?
+The local storage api is stored on the window object
+
+What are the benefits of a switch statement?
+The benefit of a switch statement is that the expression is only evaluated once. as opposed to an if statement.
+
+What is tree shaking?
+Tree shaking is a term commonly use for dead code elimination
+Capturing
+Capturing phase happens first. Moves from top level down the DOM tree to the target element. Then the Bubbling happens from there up.
+Capturing  - document-> grandparent -> parent -> child	
+Bubbling - move up the tree from child -> parent -> grandparent ->document. 
+Capture events are added as a third parameter. Automatically set to false.
+child.addEventListener(‘click’, e => {
+	console.log(‘I was clicked’)
+}, {capture: true}
+)
+e.stopPropagation() => prevents any  further capturing or bubbling
+
+What are environmental variables?
+Environmental variables are variables in the operating system which describe the environment. ie path
+
+What is a linter? 
+ESlint. A linter is a tool that analyses source code to flag programming errors, bugs, stylistic errors etc.
+
+What is an interpreter?
+An interpreter is a program that executes instructions written in a scripting language, without requiring them to have been previously compiled.
+
+What is a js engine?
+A JS engine is software which executes JS code. Originally JS engines were just interpreters, but now they use just in time compilation for improved performance. 
+
+
+What is webkit?
+Webkit is a browser engine for Apple safari.
+
+
+Shallow copy vs deep copy?
+Shallow copy methods. Array.from(arr1); arr1.slice(0); …arr1;
+Shallow copying an array means copying an array of all primitive data types. This is possible since the primitives are value types. 
+If the array has reference type values, we will only copy a pointer to the location. If a newsted reference type inside the original object is changed, the reference type inside the copied object will also change.
+Deep copy methods. 
+const copiedObj = JSON.parse(JSON.stringify(originalObj) 
+Will work even if the object is deeply nested.
+
+What does it mean to flatten an array?
+Flattening an array means to take an array of nested arrays, ie a multidimensional array, and reduce it to a single dimension array.  arr1.flat(2) The flat method takes as an argument the depth of dimensions which need to be flattened.
+
+What is object equality?
+Referential equality vs structural equality?
+Referential equality of two objects means that they both reference the exact same object in memory. ie they use the same reference.
+Structural equality means they both objects have the same value.
+
+Imperative vs declarative programming?
+Declarative sql, html, css
+Imperative Java, C++ and C#
+Imperative code focuses on writing an explicit sequence of commands to describe how you want the computer to do things. Declarative focuses on the result of what you want(ie chaining higher order and anonymous functions)
+
+What is toml?
+Toms obvious minimal language. A minimal configuration file format
+
+What is a port?
+Port 20/21 - FTP 
+Port 22 - 1995 SSH Secure encrypted shell connection. Administer machine remotely through terminal.
+Port 23 - 1969 Telnet Also terminal control, but not encrypted 	
+Port 35 - SMTP simple mail transfer protocol email 
+Port 53 - DNS
+Port 80 - HTTP 
+Port 443 - HTTPS
+
+What is DHCP?
+Dynamic host configuration protocol. Assigns ip address  
+
+What is SNMP?
+Simple network management protocol.
+
+What is netstat?
+Netstat is a cli tool which is used to display current network connectios and port activity on your computer.  
+
+What is string interpolation?
+String interpolation is replacing placeholders with values in a string literal, using template literals.
+
+What are tagged template literals?
+Tagged template literals is tagging a string literal with a function. The first function parameter is an array with all the hardcoded string pieces. The subsequent parameters are values interpolate to the string. 
+UseCase - surrounding variables with a span element.  
+
+What is a network protocol?
+A protocol is an established set of rules which determine how data is transferred between devices on a network. TCP/IP HTTP HTTPS DHCP DNS FTP ADR
+
+DNS - What is a Domain name server?
+DNS protocol convert domain names into IP addresses.
+
+What is a hash table?
+A hash table is a collection of key-value pairs. This data structure is the same as an object in JS. Also known as a map or dictionary in other languages.
+
+What is Map()?
+Map() is the JS implementation of a hashmap.
+Objects(hash tables) and hashmap provide key/value pairs. The difference is that in hashmaps the keys can be any type. In objects keys can only be integers and strings. 
+
+What is a weakmap?
+The keys and values in a weakmap should always be an object.
+
+What is a Set?
+A set is an object with a collection of values, within which a value may occur only once. That is to say that each value is unique within the set. A set is similar to an array, but they are not indexed.
+
+

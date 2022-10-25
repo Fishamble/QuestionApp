@@ -1,0 +1,29 @@
+.categories-wrapper {
+  height: 1em;
+  width: 100%;
+  background-color: bisque;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.categories-wrapper .categories {
+  width: 100%;
+  /* background-color: blue; */
+}
+
+.categories-wrapper .add {
+  border: 0;
+  font-size: 1em;
+  background: none;
+  color: red;
+}
+
+.categories-wrapper .input {
+  display: none;
+  width: 0px;
+}
+
+.categories-wrapper .show {
+  display: block;
+  width: 30em;
+}
