@@ -4,19 +4,33 @@
   background-color: var(--qbox-background-color);
   width: 90vw;
   font-size: 25px;
+  /* font-weight: 600; */
   color: var(--qbox-text-color);
   border-radius: 20px;
   margin: 1em auto;
+  height: auto;
+  min-height: 300px;
 }
 
 .question-box .question {
-  width: 90%;
+  width: 100%;
   padding: 1em;
 }
 
 .question-box .answer {
+  display: none;
+
   width: 90%;
   height: 50%;
   padding: 1em;
   text-align: start;
+}
+
+.show-answers {
+  display: block;
+}
+
+.answer-click {
+  cursor: pointer;
+  height: 280px;
 }

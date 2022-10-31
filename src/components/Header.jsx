@@ -24,12 +24,12 @@ export default function Header() {
           setIsDarkMode((prev) => !prev);
         }}
       >
-        {isDarkMode && <CiDark size="3em" />}
-        {!isDarkMode && <MdWbSunny size="3em" />}
+        {isDarkMode && <MdWbSunny size="3em" />}
+        {!isDarkMode && <CiDark size="3em" />}
       </div>
 
       <div
-        className="show-answers  circle"
+        className="show-answers circle"
         onClick={() => {
           setIsShowAnswers((prev) => !prev);
         }}

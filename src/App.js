@@ -5,11 +5,20 @@ import "./App.css";
 import QuestionBox from "./components/QuestionBox.jsx";
 // import SearchBar from "./components/SearchBar";
 // import useFetchSearch from "./Hooks/useFetchSearch";
-import { useRef, useCallback, useState, useContext } from "react";
+import { useRef, useCallback, useState, useContext, useEffect } from "react";
 import { tagsContext } from "./Helpers-test/TagsContext";
 import Header from "./components/Header";
+import WebFont from "webfontloader";
 
 function App() {
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: ["Roboto Mono"]
+      },
+    });
+  }, []);
+
   // const [questions, setQuestions] = useState([]);
   const observer = useRef();
   const [more, setMore] = useState(1);

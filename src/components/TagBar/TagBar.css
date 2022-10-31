@@ -21,6 +21,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  margin-left: 0.5em;
 }
 
 .tags-wrapper .input {
@@ -37,9 +38,9 @@
   font-size: 0.8em;
   border: 1px solid black;
   background-color: var(--qbox-tags-color);
-  color: white;
+  color: var(--tags-text-color);
   width: fit-content;
-  padding: 0.2em;
+  padding: 0.15em;
   border-radius: 5px;
   margin-left: 1em;
 }

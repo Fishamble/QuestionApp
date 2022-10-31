@@ -11,6 +11,7 @@ export function TagsProvider({ children }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isShowAnswers, setIsShowAnswers] = useState(false);
 
+
   useEffect(() => {
     const getTags = async () => {
       const docRef = doc(db, "tags", "tagsID");
