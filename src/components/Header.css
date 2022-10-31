@@ -1,0 +1,38 @@
+.header {
+  --hover-color: pink;
+  --button-color: hsl(34, 68%, 91%);
+  --min-button-width: calc(100vw / 6);
+  --min-button-width: 50px;
+}
+
+.header {
+  height: 100px;
+  width: 100%;
+  background-color: orange;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+}
+
+.header .circle {
+  height: 80px;
+  width: 80px;
+  background-color: var(--button-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+@media (max-width: 450px) {
+  .header .circle {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+.header .circle:hover {
+  background-color: var(--hover-color);
+  cursor: pointer;
+}

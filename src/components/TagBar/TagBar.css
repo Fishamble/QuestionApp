@@ -1,0 +1,58 @@
+.tags-wrapper {
+  height: 2em;
+  width: 100%;
+  background-color: bisque;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tags-wrapper .tags {
+  width: 100%;
+  /* background-color: blue; */
+  display: flex;
+  align-items: center;
+}
+
+.tags-wrapper .add {
+  border: 0;
+  font-size: 1em;
+  background: none;
+  color: red;
+  cursor: pointer;
+}
+
+.tags-wrapper .input {
+  display: none;
+  width: 0px;
+}
+
+.tags-wrapper .show {
+  display: block;
+  width: 20em;
+}
+
+.tags-wrapper .tag {
+  font-size: 0.6em;
+  border: 1px solid black;
+  background-color: brown;
+  color: white;
+  width: fit-content;
+  padding: 0.2em;
+  border-radius: 5px;
+  margin-left: 1em;
+}
+
+.tags-wrapper .tag-input {
+  display: flex;
+  /* align-items: center; */
+}
+
+.tags-wrapper .drop-down {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+.tags-wrapper .tags {
+  height: 100%;
+}

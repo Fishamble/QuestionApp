@@ -1,15 +1,37 @@
-import useFetchQuestion from "../Hooks/useFetchQuestion";
-import CategoryBar from "./CategoryBar";
+import TagBar from "./TagBar/TagBar";
 import "./QuestionBox.css";
+import { forwardRef } from "react";
 
-export default function QuestionBox() {
-  const questionObj = useFetchQuestion();
+const QuestionBox = forwardRef(function QuestionBox(props, ref) {
+  const { questionObj, index, length } = props;
 
-  return (
-    <div className="question-box" data-id={questionObj.id}>
-      <CategoryBar id={questionObj.id} />
-      <div className="question">{questionObj && <div>{questionObj.data().question}</div>}</div>
-      <div className="answer">{questionObj && questionObj.data().answer}</div>
-    </div>
-  );
-}
+  // This adds the ref forwarded from app.js
+  // to the last element. Nescessary for intersection observer
+  if (index + 1 === length) {
+    return (
+      <div className="question-box" data-id={questionObj.id} ref={ref} id="last">
+        <TagBar id={questionObj.id} tags={questionObj.data().tags} questionObj={questionObj} />
+
+        <div className="question">
+          <div>{questionObj.data().question}</div>
+          <span style={{ fontSize: ".5em" }}>{questionObj.data().id}</span>
+        </div>
+        <div className="answer">{questionObj.data().answer}</div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="question-box" data-id={questionObj.id}>
+        <TagBar id={questionObj.id} tags={questionObj.data().tags} questionObj={questionObj} />
+
+        <div className="question">
+          <div>{questionObj.data().question}</div>
+          <span style={{ fontSize: ".5em" }}>{questionObj.data().id}</span>
+        </div>
+        <div className="answer">{questionObj.data().answer}</div>
+      </div>
+    );
+  }
+});
+
+export default QuestionBox;
