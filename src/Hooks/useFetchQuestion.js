@@ -1,8 +1,8 @@
 import db from "./FirebaseConfig";
 
-import { query, where, addDoc, getDocs, getDoc, collection } from "firebase/firestore";
+import { query, where,  getDocs, collection } from "firebase/firestore";
 import { useEffect, useState, useRef } from "react";
-import { random, times, shuffle, bind, set, range } from "lodash";
+import {  shuffle, range } from "lodash";
 
 export default function useFetchQuestion(more, searchTag) {
   // console.log("searchTag in use fetch", searchTag);
@@ -11,7 +11,7 @@ export default function useFetchQuestion(more, searchTag) {
 
   const [question, setQuestion] = useState([]);
 
-  let randomIDArray = useRef(range(totalNoOfQuestions));
+  let randomIDArray = useRef(shuffle(range(totalNoOfQuestions)));
 
   useEffect(() => {
     // const controller = new AbortController();
