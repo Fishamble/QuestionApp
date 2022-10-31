@@ -19,18 +19,17 @@
 
 .question-box .answer {
   display: none;
-
-  width: 90%;
-  height: 50%;
-  padding: 1em;
-  text-align: start;
 }
 
 .show-answers {
   display: block;
+  width: 90%;
+
+  padding: 1em;
+  text-align: start;
 }
 
 .answer-click {
   cursor: pointer;
-  height: 280px;
+  min-height: 280px;
 }
