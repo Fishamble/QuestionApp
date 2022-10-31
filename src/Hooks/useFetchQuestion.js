@@ -5,7 +5,7 @@ import { useEffect, useState, useRef } from "react";
 import { random, times, shuffle, bind, set, range } from "lodash";
 
 export default function useFetchQuestion(more, searchTag) {
-  console.log("searchTag in use fetch", searchTag);
+  // console.log("searchTag in use fetch", searchTag);
 
   const totalNoOfQuestions = 168;
 

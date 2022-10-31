@@ -1,6 +1,4 @@
 .header {
-  --hover-color: pink;
-  --button-color: hsl(34, 68%, 91%);
   --min-button-width: calc(100vw / 6);
   --min-button-width: 50px;
 }
@@ -8,17 +6,18 @@
 .header {
   height: 100px;
   width: 100%;
-  background-color: orange;
+  background-color: var(--header-background-color);
   display: flex;
   align-items: center;
   justify-content: space-around;
   position: fixed;
+  color: var(--header-buttons-font-color);
 }
 
 .header .circle {
   height: 80px;
   width: 80px;
-  background-color: var(--button-color);
+  background-color: var(--header-button-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,6 +32,6 @@
 }
 
 .header .circle:hover {
-  background-color: var(--hover-color);
+  background-color: var(--header-button-hover-color);
   cursor: pointer;
 }

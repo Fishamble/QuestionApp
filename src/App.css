@@ -1,36 +1,54 @@
-
-
-.App {
-  text-align: center;
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
 }
 
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.background {
+  background-color: var(--body-background-color);
 }
 
-.App-link {
-  color: #61dafb;
+body {
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dark {
+  --header-background-color: #343a46;
+  --header-button-color: #055671;
+  --header-button-hover-color: rgb(7, 100, 131);
+  --header-buttons-font-color: white;
+
+  --qbox-background-color: #23272f;
+  --qbox-tags-header-color: #107191;
+  --qbox-tags-color: #3f4655;
+  --qbox-text-color: white;
+  --body-background-color: rgb(0, 0, 0);
+  --button-add-tag-color: #343a46;
+}
+
+.light {
+  --header-button-color: #055671;
+  --header-button-hover-color: pink;
+  --header-background-color: #3796b5;
+  --header-buttons-font-color: white;
+  --qbox-background-color: #42b5db;
+  --qbox-tags-header-color: #087ea4;
+  --qbox-tags-color: #3e4148;
+  --qbox-text-color: black;
+  --body-background-color: black;
+  --button-add-tag-color: #f6f7f9;
 }

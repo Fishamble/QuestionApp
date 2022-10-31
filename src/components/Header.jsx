@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { tagsContext } from "../Helpers-test/TagsContext";
 
 //css
@@ -10,7 +10,7 @@ import { RiQuestionnaireFill, RiQuestionnaireLine } from "react-icons/ri";
 import { AiOutlineMail } from "react-icons/ai";
 import { IoInformationCircleOutline } from "react-icons/io5";
 import { VscAccount } from "react-icons/vsc";
-import { GrAddCircle } from "react-icons/gr";
+import { CgAdd } from "react-icons/cg";
 
 export default function Header() {
   const { isDarkMode, setIsDarkMode } = useContext(tagsContext);
@@ -47,7 +47,7 @@ export default function Header() {
         <VscAccount size="3em" />
       </div>
       <div className="new-question  circle">
-        <GrAddCircle size="3em" />
+        <CgAdd size="3.5em" />
       </div>
     </div>
   );

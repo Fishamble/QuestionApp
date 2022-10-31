@@ -1,8 +1,11 @@
 .question-box {
-  background-color: aquamarine;
+  overflow: hidden;
+
+  background-color: var(--qbox-background-color);
   width: 90vw;
   font-size: 25px;
-  border-radius: 50px;
+  color: var(--qbox-text-color);
+  border-radius: 20px;
   margin: 1em auto;
 }
 
@@ -17,5 +20,3 @@
   padding: 1em;
   text-align: start;
 }
-
-

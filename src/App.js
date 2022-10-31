@@ -1,6 +1,7 @@
 import useFetchQuestion from "./Hooks/useFetchQuestion";
 
 import "./App.css";
+
 import QuestionBox from "./components/QuestionBox.jsx";
 // import SearchBar from "./components/SearchBar";
 // import useFetchSearch from "./Hooks/useFetchSearch";
@@ -13,9 +14,9 @@ function App() {
   const observer = useRef();
   const [more, setMore] = useState(1);
 
-  const { searchTag } = useContext(tagsContext);
+  const { searchTag, isDarkMode } = useContext(tagsContext);
 
-  let questions = useFetchQuestion(more,searchTag);
+  let questions = useFetchQuestion(more, searchTag);
 
   const lastQuestionOnScreen = useCallback((node) => {
     if (observer.current) observer.current.disconnect();
@@ -27,8 +28,9 @@ function App() {
     if (node) observer.current.observe(node);
   }, []);
 
-  return (<>
-      <Header/>
+  return (
+    <div className={isDarkMode ? "dark background" : "light"}>
+      <Header />
       <div className="App">
         {questions &&
           questions.map((q, index) => {
@@ -36,7 +38,7 @@ function App() {
           })}
         {!questions && <div>Loading...</div>}
       </div>
-      </>
+    </div>
   );
 }
 

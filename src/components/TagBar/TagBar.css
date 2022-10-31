@@ -1,7 +1,7 @@
 .tags-wrapper {
   height: 2em;
   width: 100%;
-  background-color: bisque;
+  background-color: var(--qbox-tags-header-color);
   display: flex;
   justify-content: flex-end;
 }
@@ -17,8 +17,10 @@
   border: 0;
   font-size: 1em;
   background: none;
-  color: red;
+  color: var(--button-add-tag-color);
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .tags-wrapper .input {
@@ -32,9 +34,9 @@
 }
 
 .tags-wrapper .tag {
-  font-size: 0.6em;
+  font-size: 0.8em;
   border: 1px solid black;
-  background-color: brown;
+  background-color: var(--qbox-tags-color);
   color: white;
   width: fit-content;
   padding: 0.2em;
@@ -55,4 +57,27 @@
 
 .tags-wrapper .tags {
   height: 100%;
+}
+
+.tags-wrapper .edit {
+  display: flex;
+  align-items: center;
+}
+
+.tags-wrapper .edit-font {
+  padding: 1em;
+  cursor: pointer;
+}
+
+@media (max-width: 490px) {
+  .tags-wrapper .edit-font {
+    padding-left: 0;
+    padding-right: 0.5em;
+  }
+
+  .tags-wrapper .tag {
+    margin-left: 0.4em;
+    background-color: blue;
+    width: auto;
+  }
 }

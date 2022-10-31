@@ -2,14 +2,15 @@ import "./TagBar.css";
 
 import { FaPlus } from "react-icons/fa";
 import db from "../../Hooks/FirebaseConfig";
-import { doc, updateDoc, arrayUnion, getDoc, setDoc, collection, getDocs } from "firebase/firestore";
+import { doc, updateDoc, arrayUnion, getDoc } from "firebase/firestore";
 
 import { useState, useRef, useEffect } from "react";
 
 import TagInput from "./TagInput";
+import Edit from "./Edit";
 
 export default function TagBar({ id, tags, questionObj }) {
-  const [isShowTagInput, setisShowTagInput] = useState(false);
+  const [isShowTagInput, setIsShowTagInput] = useState(false);
   const [tagInput, setTagInput] = useState("");
   const cateogryInputRef = useRef(null);
 
@@ -40,7 +41,7 @@ export default function TagBar({ id, tags, questionObj }) {
       setTagInput("");
     }
     consoleLogQuestionObject();
-    setisShowTagInput((prev) => !prev);
+    setIsShowTagInput((prev) => !prev);
   };
 
   // Set focus on the input button
@@ -59,11 +60,11 @@ export default function TagBar({ id, tags, questionObj }) {
               </div>
             ))}
           <button className="add" onClick={handleAddButton}>
-            {" "}
             <FaPlus />
           </button>
           <TagInput cateogryInputRef={cateogryInputRef} isShowTagInput={isShowTagInput} tagInput={tagInput} setTagInput={setTagInput} />
         </div>
+        <Edit/>
       </div>
     </div>
   );
