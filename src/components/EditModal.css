@@ -1,0 +1,63 @@
+.edit-modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(128, 128, 128, 1);
+}
+
+.edit-box {
+  overflow: hidden;
+
+  background-color: var(--qbox-background-color);
+  width: 90vw;
+  font-size: 25px;
+  color: var(--qbox-text-color);
+  border-radius: 20px;
+  margin: auto;
+  margin-top: 15vw;
+  height: 70vh;
+}
+
+.edit-box .edit-question {
+  width: 100%;
+  padding: 1em;
+  font-size: 25px;
+  background-color: var(--qbox-background-color);
+  margin-bottom: 1em;
+  height: 5vh;
+}
+
+.edit-box .edit-answer {
+  width: 100%;
+  padding: 1em;
+  font-size: 25px;
+  background-color: var(--qbox-background-color);
+  height: 42vh;
+  resize: none;
+}
+
+.edit-form {
+  margin: 1em;
+}
+
+.edit-wrapper {
+  width: 90%;
+}
+
+.edit-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.edit-button {
+  background-color: var(--qbox-tags-color);
+  color: var(--tags-text-color);
+  font-size: 25px;
+  padding: 0.5em;
+  margin-right: 1em;
+  margin-top: .5em;
+  cursor: pointer;
+}

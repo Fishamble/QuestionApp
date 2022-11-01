@@ -63,11 +63,13 @@
 .tags-wrapper .edit {
   display: flex;
   align-items: center;
+  /* background-color: blue; */
+  cursor: pointer;
 }
 
 .tags-wrapper .edit-font {
-  padding: 1em;
-  cursor: pointer;
+  margin: 1em;
+  color: var(--button-add-tag-color);
 }
 
 @media (max-width: 490px) {
@@ -78,7 +80,6 @@
 
   .tags-wrapper .tag {
     margin-left: 0.4em;
-    background-color: blue;
     width: auto;
   }
 }

@@ -6,6 +6,9 @@
 .header {
   height: 100px;
   width: 100%;
+  top: 0;
+  left: 0;
+
   background-color: var(--header-background-color);
   display: flex;
   align-items: center;
@@ -33,5 +36,31 @@
 
 .header .circle:hover {
   background-color: var(--header-button-hover-color);
+  cursor: pointer;
+}
+
+.header-tag-bar {
+  position: fixed;
+  top: 100px;
+  left: 0px;
+  height: 60px;
+  width: 100%;
+  background-color: var(--header-tag-bar-color);
+}
+
+.tag-bar-wrapper {
+  margin: 1em;
+}
+
+.tag-bar {
+  font-size: 1.3em;
+  border: 1px solid black;
+  background-color: var(--qbox-tags-color);
+  color: var(--tags-text-color);
+  width: fit-content;
+  padding: 0.15em;
+  border-radius: 5px;
+  margin-left: 1em;
+
   cursor: pointer;
 }

@@ -1,24 +1,3 @@
-/* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Remove default margin */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
-
 .background {
   background-color: var(--body-background-color);
 }
@@ -27,16 +6,20 @@ body {
   font-family: "Roboto Mono";
 }
 
+.header-spacer {
+  height: 150px;
+}
+
 .dark {
   --header-background-color: #343a46;
   --header-button-color: #055671;
   --header-button-hover-color: rgb(7, 100, 131);
   --header-buttons-font-color: white;
 
+  --header-tag-bar-color: hsl(220, 20%, 27%);
   --qbox-background-color: #23272f;
   --qbox-tags-header-color: #107191;
   --qbox-tags-color: #3f4655;
-  /* --qbox-text-color: rgb(251, 31, 119); */
   --qbox-text-color: white;
 
   --tags-text-color: white;
@@ -48,8 +31,10 @@ body {
   --header-button-color: #055671;
 
   --header-button-hover-color: #036383;
-  --header-background-color: #3796b5;
+  --header-background-color: #32809a;
   --header-buttons-font-color: white;
+  --header-tag-bar-color: #3796b5;
+
   --qbox-background-color: #42b5db;
   --qbox-tags-header-color: #087ea4;
   --qbox-tags-color: #3e4148;

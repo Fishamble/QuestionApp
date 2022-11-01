@@ -26,3 +26,28 @@ const docRef = doc(db, "cities", "SF");
 const docSnap = await getDoc(docRef);
 
 const q = query(citiesRef, where("capital", "==", true));
+
+
+// Add a new document in collection "cities"
+await setDoc(doc(db, "cities", "LA"), {
+  name: "Los Angeles",
+  state: "CA",
+  country: "USA"
+});
+
+// Add a new document with a generated id.
+const docRef = await addDoc(collection(db, "cities"), {
+  name: "Tokyo",
+  country: "Japan"
+});
+console.log("Document written with ID: ", docRef.id);
+
+
+import { doc, updateDoc } from "firebase/firestore";
+
+const washingtonRef = doc(db, "cities", "DC");
+
+// Set the "capital" field of the city 'DC'
+await updateDoc(washingtonRef, {
+  capital: true
+});

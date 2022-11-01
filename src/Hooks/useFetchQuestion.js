@@ -42,3 +42,7 @@ export default function useFetchQuestion(more, searchTag) {
 
   return question;
 }
+
+
+// const ref = collection(db, "Questions1test")
+      // const q = query(ref, where("tags", "array-contains", "OOP"));

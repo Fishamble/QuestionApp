@@ -9,7 +9,7 @@ import { useState, useRef, useEffect } from "react";
 import TagInput from "./TagInput";
 import Edit from "./Edit";
 
-export default function TagBar({ id, tags, questionObj }) {
+export default function TagBar({ id, tags, handleEdit, showEdit }) {
   const [isShowTagInput, setIsShowTagInput] = useState(false);
   const [tagInput, setTagInput] = useState("");
   const cateogryInputRef = useRef(null);
@@ -64,7 +64,7 @@ export default function TagBar({ id, tags, questionObj }) {
           </button>
           <TagInput cateogryInputRef={cateogryInputRef} isShowTagInput={isShowTagInput} tagInput={tagInput} setTagInput={setTagInput} />
         </div>
-        <Edit/>
+        {showEdit && <Edit handleEdit={handleEdit} />}
       </div>
     </div>
   );

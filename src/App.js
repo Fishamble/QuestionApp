@@ -40,6 +40,7 @@ function App() {
   return (
     <div className={isDarkMode ? "dark background" : "light"}>
       <Header />
+      <div className="header-spacer"></div>
       <div className="App">
         {questions &&
           questions.map((q, index) => {
