@@ -2,7 +2,7 @@
 import db from "./FirebaseConfig";
 import { query, where, getDocs, collection, doc, getDoc } from "firebase/firestore";
 //react
-import { useEffect, useState, useRef, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 //lodash
 import { shuffle, range } from "lodash";
 import { tagsContext } from "../Helpers-test/TagsContext";
