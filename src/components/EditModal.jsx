@@ -11,8 +11,6 @@ export default function EditModal({ questionObj, setShowModal }) {
   const handleEdit = async (e) => {
     e.preventDefault();
 
-    
-
     //backup the exisiting quesiton/answer to seperate collection
     await addDoc(collection(db, "QuestionsModified"), {
       question: questionObj.data().question,
@@ -21,6 +19,7 @@ export default function EditModal({ questionObj, setShowModal }) {
       modifiedAt: new Date(),
     });
 
+    //update the edited document
     const docRef = doc(db, "Questions1test", questionObj.id);
     await updateDoc(docRef, {
       question: question,
@@ -32,6 +31,10 @@ export default function EditModal({ questionObj, setShowModal }) {
 
   return (
     <div className="edit-modal-background">
+      <div className="edit-heading-wrapper">
+        <div className="edit-heading">Edit</div>
+      </div>
+
       <div className="edit-box">
         <TagBar id={questionObj.id} tags={questionObj.data().tags} questionObj={questionObj} showEdit={false} />
         <div className="edit-wrapper">

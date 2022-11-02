@@ -23,10 +23,9 @@
 
 .show-answers {
   display: block;
-  width: 90%;
-
-  /* padding: 1em; */
   text-align: start;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .answer-click {

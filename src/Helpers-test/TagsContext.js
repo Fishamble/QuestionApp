@@ -10,19 +10,33 @@ export function TagsProvider({ children }) {
   const [searchTag, setSearchTag] = useState("");
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isShowAnswers, setIsShowAnswers] = useState(false);
-
+  const [totalNoOfQuestions, setTotalNoOfQuestions] = useState(0);
 
   useEffect(() => {
-    const getTags = async () => {
+    const fetchListOfTags = async () => {
       const docRef = doc(db, "tags", "tagsID");
       const result = await getDoc(docRef);
       setTagsList(result.data().tag);
     };
-    getTags();
+
+    fetchListOfTags();
   }, []);
 
   return (
-    <tagsContext.Provider value={{ isDarkMode, setIsDarkMode, tagsList, setTagsList, searchTag, setSearchTag, isShowAnswers, setIsShowAnswers }}>
+    <tagsContext.Provider
+      value={{
+        totalNoOfQuestions,
+        setTotalNoOfQuestions,
+        isDarkMode,
+        setIsDarkMode,
+        tagsList,
+        setTagsList,
+        searchTag,
+        setSearchTag,
+        isShowAnswers,
+        setIsShowAnswers,
+      }}
+    >
       {children}
     </tagsContext.Provider>
   );

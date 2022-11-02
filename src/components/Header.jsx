@@ -33,7 +33,7 @@ export default function Header() {
         </div>
 
         <div
-          className="show-answers circle"
+          className="show-answers-icon circle"
           onClick={() => {
             setIsShowAnswers((prev) => !prev);
           }}

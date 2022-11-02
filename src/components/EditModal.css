@@ -4,26 +4,39 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(128, 128, 128, 1);
+  background-color: rgba(128, 128, 128, 0.95);
 }
 
 .edit-box {
   overflow: hidden;
-
   background-color: var(--qbox-background-color);
   width: 90vw;
   font-size: 25px;
   color: var(--qbox-text-color);
   border-radius: 20px;
   margin: auto;
-  margin-top: 15vw;
+  margin-top: 5vw;
   height: 70vh;
+}
+
+.edit-heading-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 150px;
+}
+.edit-heading {
+  background-color: var(--qbox-background-color);
+  font: 4em;
+  padding: 1.5em;
 }
 
 .edit-box .edit-question {
   width: 100%;
   padding: 1em;
   font-size: 25px;
+  color: Var(--qbox-text-color);
   background-color: var(--qbox-background-color);
   margin-bottom: 1em;
   height: 5vh;
@@ -33,6 +46,7 @@
   width: 100%;
   padding: 1em;
   font-size: 25px;
+  color: Var(--qbox-text-color);
   background-color: var(--qbox-background-color);
   height: 42vh;
   resize: none;
@@ -58,6 +72,6 @@
   font-size: 25px;
   padding: 0.5em;
   margin-right: 1em;
-  margin-top: .5em;
+  margin-top: 0.5em;
   cursor: pointer;
 }
