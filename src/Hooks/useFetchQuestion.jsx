@@ -7,6 +7,9 @@ import { useEffect, useState, useRef, useContext } from "react";
 import { shuffle, range } from "lodash";
 import { tagsContext } from "../Helpers-test/TagsContext";
 
+// called by APP.js to populate the main screen with questions.
+// each time the user scrolls to the bottom app.js calls for another 5 questions
+// also called by headertagbar when user clicks on a tag.
 export default function useFetchQuestion(more, searchTag) {
   const { totalNoOfQuestions, setTotalNoOfQuestions } = useContext(tagsContext);
 
@@ -23,7 +26,7 @@ export default function useFetchQuestion(more, searchTag) {
   }, [totalNoOfQuestions, setTotalNoOfQuestions]);
 
   useEffect(() => {
-    setRandomIDArray(range(totalNoOfQuestions));
+    setRandomIDArray(shuffle(range(totalNoOfQuestions)));
   }, [totalNoOfQuestions]);
 
   useEffect(() => {
@@ -48,8 +51,15 @@ export default function useFetchQuestion(more, searchTag) {
       setQuestion(result.docs);
     };
 
-    if (searchTag) {
+    //If invoked with a search tag
+    if (searchTag && searchTag !== "ShowAll") {
       getQuestionsByTag();
+    }
+
+    //If tag selected is to show all
+    if (searchTag && searchTag === "ShowAll") {
+      setQuestion(() => []); // removes rendered questions to avoid key duplication
+      fetchQuestions();
     }
 
     console.log(totalNoOfQuestions, " ", randomIDArray);

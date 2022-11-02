@@ -20,7 +20,7 @@ export default function Header() {
   const { isShowAnswers, setIsShowAnswers } = useContext(tagsContext);
 
   return (
-    <>
+    <div className="header-wrapper">
       <div className="header">
         <div
           className="dark-mode circle"
@@ -54,7 +54,8 @@ export default function Header() {
           <CgAdd size="3.5em" />
         </div>
       </div>
+
       <HeaderTagBar />
-    </>
+    </div>
   );
 }

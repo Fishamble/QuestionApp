@@ -11,6 +11,7 @@ export default function TagDropDown({ isShowTagInput, setTagInput }) {
   return (
     <div className={isShowTagInput ? "drop-down show" : "input"}>
       <select onChange={handleTagSelectChange} name="tags" id="tags">
+        <option defaultValue={""}>Choose a tag</option>
         {tagsList.map((tag) => {
           return (
             <option key={tag} value={tag}>

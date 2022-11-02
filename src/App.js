@@ -11,7 +11,6 @@ import Header from "./components/Header";
 import WebFont from "webfontloader";
 
 function App() {
-
   useEffect(() => {
     WebFont.load({
       google: {

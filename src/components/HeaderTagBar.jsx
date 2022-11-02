@@ -12,10 +12,13 @@ export default function HeaderTagBar() {
   return (
     <div className="header-tag-bar">
       <div className="tag-bar-wrapper">
+        <div className="tag-bar" onClick={() => handleTagSelect("ShowAll")}>
+          All
+        </div>
         {tagsList.map((tag) => (
-          <span className="tag-bar" key={tag} onClick={() => handleTagSelect(tag)}>
+          <div className="tag-bar" key={tag} onClick={() => handleTagSelect(tag)}>
             {tag}
-          </span>
+          </div>
         ))}
       </div>
     </div>
