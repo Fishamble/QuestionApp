@@ -1,17 +1,21 @@
-import "./TagBar.css";
-
-import { FaPlus } from "react-icons/fa";
+//react
+import { useState, useRef, useEffect } from "react";
+//firestore
 import db from "../../Hooks/FirebaseConfig";
 import { doc, updateDoc, arrayUnion, getDoc } from "firebase/firestore";
-
-import { useState, useRef, useEffect } from "react";
-
+//icons
+import { FaPlus } from "react-icons/fa";
+//css
+import "./TagBar.css";
+//components
 import TagInput from "./TagInput";
 import Edit from "./Edit";
 
-export default function TagBar({ id, tags, handleEdit, showEdit }) {
+export default function TagBar({ id, tagsProp, handleEdit, showEdit }) {
   const [isShowTagInput, setIsShowTagInput] = useState(false);
   const [tagInput, setTagInput] = useState("");
+  const [tags, setTags] = useState(tagsProp);
+
   const cateogryInputRef = useRef(null);
 
   const addCategoryTag = async () => {
@@ -28,19 +32,13 @@ export default function TagBar({ id, tags, handleEdit, showEdit }) {
     });
   };
 
-  const consoleLogQuestionObject = async () => {
-    const docRef = doc(db, "Questions1test", id);
-    const result = await getDoc(docRef);
-
-    console.log(result.data());
-  };
-
   const handleAddButton = () => {
     if (isShowTagInput && tagInput) {
       addCategoryTag(tagInput);
       setTagInput("");
+      setTags((prev) => [...prev, tagInput]);
     }
-    consoleLogQuestionObject();
+
     setIsShowTagInput((prev) => !prev);
   };
 
@@ -48,6 +46,8 @@ export default function TagBar({ id, tags, handleEdit, showEdit }) {
   useEffect(() => {
     cateogryInputRef.current.focus();
   }, [isShowTagInput]);
+
+  console.log(tags);
 
   return (
     <div>

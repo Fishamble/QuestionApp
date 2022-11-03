@@ -62,7 +62,9 @@ export default function useFetchQuestion(more, searchTag) {
       fetchQuestions();
     }
 
-    console.log(totalNoOfQuestions, " ", randomIDArray);
+    // Testing
+    // console.log(totalNoOfQuestions, " ", randomIDArray);
+    // Testing
 
     //Continue infintite scroll until there are less than five questions left
     if (!searchTag && randomIDArray.length > 5) {
