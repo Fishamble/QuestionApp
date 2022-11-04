@@ -10,8 +10,9 @@ import { tagsContext } from "../Helpers-test/TagsContext";
 // called by APP.js to populate the main screen with questions.
 // each time the user scrolls to the bottom app.js calls for another 5 questions
 // also called by headertagbar when user clicks on a tag.
-export default function useFetchQuestion(more, searchTag) {
+export default function useFetchQuestion(more) {
   const { totalNoOfQuestions, setTotalNoOfQuestions } = useContext(tagsContext);
+  const { searchTag, setSearchTag } = useContext(tagsContext);
 
   const [question, setQuestion] = useState([]);
   const [randomIDArray, setRandomIDArray] = useState([]);
@@ -59,17 +60,18 @@ export default function useFetchQuestion(more, searchTag) {
     //If tag selected is to show all
     if (searchTag && searchTag === "ShowAll") {
       setQuestion(() => []); // removes rendered questions to avoid key duplication
+      setSearchTag(null);
       fetchQuestions();
     }
-
-    // Testing
-    // console.log(totalNoOfQuestions, " ", randomIDArray);
-    // Testing
 
     //Continue infintite scroll until there are less than five questions left
     if (!searchTag && randomIDArray.length > 5) {
       fetchQuestions();
     }
+
+    // Testing
+    console.log(totalNoOfQuestions, " ", randomIDArray);
+    // Testing
   }, [more, searchTag, totalNoOfQuestions, setTotalNoOfQuestions, randomIDArray]);
 
   return question;

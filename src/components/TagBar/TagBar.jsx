@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 //firestore
 import db from "../../Hooks/FirebaseConfig";
-import { doc, updateDoc, arrayUnion, getDoc } from "firebase/firestore";
+import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 //icons
 import { FaPlus } from "react-icons/fa";
 //css
@@ -46,8 +46,6 @@ export default function TagBar({ id, tagsProp, handleEdit, showEdit }) {
   useEffect(() => {
     cateogryInputRef.current.focus();
   }, [isShowTagInput]);
-
-  console.log(tags);
 
   return (
     <div>
