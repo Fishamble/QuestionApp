@@ -19,18 +19,38 @@
 }
 
 .question-box .answer {
-  display: none;
-}
+  /* display: none;*/
+  /* visibility: hidden; */
+  background-color: rgba(128, 128, 128, 0.8);
+  color: grey;
 
-.show-answers {
-  display: block;
   text-align: start;
   width: 90%;
   margin: 0 auto;
-  padding-bottom: 1em;
+  margin-bottom: 1em;
+}
+
+.show-answers {
+  /* display: block */
+  background-color: inherit;
+  color: inherit;
+  text-align: start;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 1em;
 }
 
 .answer-click {
   cursor: pointer;
   min-height: 280px;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }

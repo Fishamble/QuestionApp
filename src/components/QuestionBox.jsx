@@ -23,7 +23,7 @@ const QuestionBox = forwardRef(function QuestionBox(props, ref) {
   const showAnswerOrNot = () => {
     if (isShowIndividualAnswer) return "show-answers";
     else if (isShowAnswers) return "show-answers";
-    else return "answer";
+    else return "answer noselect";
   };
 
   const handleEdit = () => {

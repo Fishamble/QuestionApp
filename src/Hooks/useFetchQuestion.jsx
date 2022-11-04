@@ -37,12 +37,16 @@ export default function useFetchQuestion(more) {
 
     //fetch 5 more questions when we reach bottom of infinite scroll
     const fetchQuestions = async () => {
-      for (let i = 0; i < 5; i++) {
-        const q = query(collection(db, "Questions1test"), where("id", "==", randomIDArray.pop()));
-        const result = await getDocs(q);
-        output.push(result.docs[0]);
+      try {
+        for (let i = 0; i < 5; i++) {
+          const q = query(collection(db, "Questions1test"), where("id", "==", randomIDArray.pop()));
+          const result = await getDocs(q);
+          output.push(result.docs[0]);
+        }
+        setQuestion((prev) => [...prev, ...output]);
+      } catch (error) {
+        console.log(error);
       }
-      setQuestion((prev) => [...prev, ...output]);
     };
 
     //Fetch all questions specified by a tag
@@ -72,7 +76,7 @@ export default function useFetchQuestion(more) {
     // Testing
     console.log(totalNoOfQuestions, " ", randomIDArray);
     // Testing
-  }, [more, searchTag, totalNoOfQuestions, setTotalNoOfQuestions, randomIDArray,setSearchTag]);
+  }, [more, searchTag, totalNoOfQuestions, setTotalNoOfQuestions, randomIDArray, setSearchTag]);
 
   return question;
 }
