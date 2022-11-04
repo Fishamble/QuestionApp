@@ -1,6 +1,10 @@
 import db from "./FirebaseConfig";
 import { useEffect } from "react";
-import { query, where, getDocs, collection, updateDoc, doc } from "firebase/firestore";
+import {  getDocs, collection, updateDoc, doc } from "firebase/firestore";
+
+
+
+//hook written for a single use. resets the tags array to empty for all docs in collection 
 
 export default function useClearTags() {
   useEffect(() => {

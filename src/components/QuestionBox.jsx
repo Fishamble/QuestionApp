@@ -31,8 +31,6 @@ const QuestionBox = forwardRef(function QuestionBox(props, ref) {
     setShowModal(true);
   };
 
-
-
   // ref = index + 1 adds a ref to the last component. Nescessary for intersection observer.
   return (
     <div className="question-box" data-id={questionObj.id} ref={index + 1 === length ? ref : null}>
@@ -44,7 +42,7 @@ const QuestionBox = forwardRef(function QuestionBox(props, ref) {
         </div>
         <div className={showAnswerOrNot()}>{questionObj.data().answer}</div>
       </div>
-      {showModal && <EditModal questionObj={questionObj} />}
+      {showModal && <EditModal questionObj={questionObj} setShowModal={setShowModal} />}
     </div>
   );
 });

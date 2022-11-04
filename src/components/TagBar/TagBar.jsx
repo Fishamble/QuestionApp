@@ -1,5 +1,5 @@
 //react
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 //firestore
 import db from "../../Hooks/FirebaseConfig";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
@@ -11,12 +11,16 @@ import "./TagBar.css";
 import TagInput from "./TagInput";
 import Edit from "./Edit";
 
-export default function TagBar({ id, tagsProp, handleEdit, showEdit }) {
+import { tagsContext } from "../../Helpers-test/TagsContext";
+
+export default function TagBar({ id, tagsProp, handleEdit }) {
   const [isShowTagInput, setIsShowTagInput] = useState(false);
   const [tagInput, setTagInput] = useState("");
   const [tags, setTags] = useState(tagsProp);
 
   const cateogryInputRef = useRef(null);
+
+  const { setSearchTag } = useContext(tagsContext);
 
   const addCategoryTag = async () => {
     //Add tag to the tag array on the document
@@ -53,7 +57,7 @@ export default function TagBar({ id, tagsProp, handleEdit, showEdit }) {
         <div className="tags">
           {tags &&
             tags.map((tag) => (
-              <div key={tag} className="tag">
+              <div key={tag} className="tag" onClick={() => setSearchTag(tag)}>
                 {tag}
               </div>
             ))}
@@ -62,7 +66,7 @@ export default function TagBar({ id, tagsProp, handleEdit, showEdit }) {
           </button>
           <TagInput cateogryInputRef={cateogryInputRef} isShowTagInput={isShowTagInput} tagInput={tagInput} setTagInput={setTagInput} />
         </div>
-        {showEdit && <Edit handleEdit={handleEdit} />}
+        <Edit handleEdit={handleEdit} />
       </div>
     </div>
   );
