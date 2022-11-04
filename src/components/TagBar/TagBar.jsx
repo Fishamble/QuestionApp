@@ -1,8 +1,6 @@
 //react
-import { useState, useRef, useEffect, useContext } from "react";
-//firestore
-import db from "../../Hooks/FirebaseConfig";
-import { doc, updateDoc, arrayUnion } from "firebase/firestore";
+import { useState, useContext } from "react";
+
 //icons
 import { FaPlus } from "react-icons/fa";
 //css
@@ -14,42 +12,10 @@ import Edit from "./Edit";
 import { tagsContext } from "../../Helpers-test/TagsContext";
 
 export default function TagBar({ id, tagsProp, handleEdit }) {
-  const [isShowTagInput, setIsShowTagInput] = useState(false);
-  const [tagInput, setTagInput] = useState("");
   const [tags, setTags] = useState(tagsProp);
-
-  const cateogryInputRef = useRef(null);
+  const [isShowTagInput, setIsShowTagInput] = useState(false);
 
   const { setSearchTag } = useContext(tagsContext);
-
-  const addCategoryTag = async () => {
-    //Add tag to the tag array on the document
-    let docRef = doc(db, "Questions1test", id);
-    await updateDoc(docRef, {
-      tags: arrayUnion(tagInput),
-    });
-
-    //Add tag to an overall array of tags in a seperate collection
-    docRef = doc(db, "tags", "tagsID");
-    await updateDoc(docRef, {
-      tag: arrayUnion(tagInput),
-    });
-  };
-
-  const handleAddButton = () => {
-    if (isShowTagInput && tagInput) {
-      addCategoryTag(tagInput);
-      setTagInput("");
-      setTags((prev) => [...prev, tagInput]);
-    }
-
-    setIsShowTagInput((prev) => !prev);
-  };
-
-  // Set focus on the input button
-  useEffect(() => {
-    cateogryInputRef.current.focus();
-  }, [isShowTagInput]);
 
   return (
     <div>
@@ -61,10 +27,12 @@ export default function TagBar({ id, tagsProp, handleEdit }) {
                 {tag}
               </div>
             ))}
-          <button className="add" onClick={handleAddButton}>
-            <FaPlus />
-          </button>
-          <TagInput cateogryInputRef={cateogryInputRef} isShowTagInput={isShowTagInput} tagInput={tagInput} setTagInput={setTagInput} />
+          {!isShowTagInput && (
+            <button className="add" onClick={() => setIsShowTagInput(true)}>
+              <FaPlus />
+            </button>
+          )}
+          {isShowTagInput && <TagInput tags={tags} setTags={setTags} id={id} setIsShowTagInput={setIsShowTagInput} />}
         </div>
         <Edit handleEdit={handleEdit} />
       </div>

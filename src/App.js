@@ -23,10 +23,8 @@ function App() {
   const observer = useRef();
   const [more, setMore] = useState(1);
 
-  const { searchTag, isDarkMode } = useContext(tagsContext);
-;
-
-  let questions = useFetchQuestion(more)
+  const { isDarkMode } = useContext(tagsContext);
+  let questions = useFetchQuestion(more);
   const lastQuestionOnScreen = useCallback((node) => {
     if (observer.current) observer.current.disconnect();
     observer.current = new IntersectionObserver((entries) => {
