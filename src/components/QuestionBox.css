@@ -40,6 +40,16 @@
   margin-bottom: 1em;
 }
 
+.show-individual {
+  /* display: block */
+  background-color: inherit;
+  color: inherit;
+  text-align: start;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 1em;
+}
+
 .answer-click {
   cursor: pointer;
   min-height: 280px;

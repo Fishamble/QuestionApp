@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
-import { createContext } from "react";
+//react
+import { useEffect, useState, createContext } from "react";
+//firebase
 import db from "../Hooks/FirebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
-
+//context
 export const tagsContext = createContext([]);
 
 export function TagsProvider({ children }) {
