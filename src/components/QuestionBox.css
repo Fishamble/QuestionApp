@@ -16,6 +16,7 @@
   width: 90%;
   margin: 0 auto;
   padding: 1em;
+  /* text-shadow: 0 0 1px white; */
 }
 
 .question-box .answer {
