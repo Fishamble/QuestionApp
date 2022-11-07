@@ -1,6 +1,5 @@
 .question-box {
   overflow: hidden;
-
   background-color: var(--qbox-background-color);
   width: 90vw;
   max-width: var(--max-width);
@@ -12,6 +11,7 @@
   min-height: 300px;
   position: relative;
   box-shadow: 3px 3px 5px;
+  scroll-snap-align: start;
 }
 
 .question-box .question {
@@ -75,8 +75,7 @@
   -khtml-user-select: none; /* Konqueror HTML */
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
   z-index: -10;
   position: relative;
 }
