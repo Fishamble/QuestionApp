@@ -10,6 +10,8 @@
   margin: 1em auto;
   height: auto;
   min-height: 300px;
+  position: relative;
+  box-shadow: 3px 3px 5px;
 }
 
 .question-box .question {
@@ -22,13 +24,16 @@
 .question-box .answer {
   /* display: none;*/
   /* visibility: hidden; */
-  background-color: rgba(128, 128, 128, 0.8);
-  color: grey;
+  /* background-color: rgba(128, 128, 128, 0.8); */
+  /* color: grey; */
 
   text-align: start;
-  width: 90%;
   margin: 0 auto;
   margin-bottom: 1em;
+  opacity: 0;
+  max-height: 300px;
+  transform: translate(-50vw, 0);
+  transition: all 200ms linear;
 }
 
 .show-answers {
@@ -39,6 +44,7 @@
   width: 90%;
   margin: 0 auto;
   margin-bottom: 1em;
+  transition: all 200ms linear;
 }
 
 .show-individual {
@@ -49,11 +55,18 @@
   width: 90%;
   margin: 0 auto;
   margin-bottom: 1em;
+
+  transition: all 200ms linear;
 }
 
 .answer-click {
   cursor: pointer;
-  min-height: 280px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .noselect {
@@ -64,4 +77,6 @@
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+  z-index: -10;
+  position: relative;
 }

@@ -8,7 +8,6 @@ import { forwardRef, useContext, useState } from "react";
 import TagBar from "./TagBar/TagBar";
 import EditModal from "./EditModal";
 
-
 //forward ref required to add intersetion observer
 const QuestionBox = forwardRef(function QuestionBox(props, ref) {
   const { questionObj, index, length } = props;
@@ -34,6 +33,11 @@ const QuestionBox = forwardRef(function QuestionBox(props, ref) {
     <div className="question-box" data-id={questionObj.id} ref={index + 1 === length ? ref : null}>
       <TagBar id={questionObj.id} tagsProp={questionObj.data().tags} questionObj={questionObj} handleEdit={handleEdit} />
       <div className="answer-click" onClick={() => setIsShowIndividualAnswer((prev) => !prev)}>
+        {" "}
+        {!isShowAnswers && !isShowIndividualAnswer && <div> Reveal answer.</div>}
+      </div>
+
+      <div>
         <div className="question">
           <div>{questionObj.data().question}</div>
           <span style={{ fontSize: ".5em" }}>id:{questionObj.data().id}</span>
