@@ -40,7 +40,7 @@ export default function QuestionBox(props) {
           if (entries[0].isIntersecting) {
             // console.count();
             console.log(questionObj.data().question);
-            node.classList.add("Q-box-transition");
+            // node.classList.add("Q-box-transition");
             console.log("On the screen", node);
           }
         },
