@@ -33,24 +33,24 @@ export default function QuestionBox(props) {
     [setMore]
   );
 
-  // const anotherQuestion = useCallback(
-  //   (node) => {
-  //     if (observer.current) observer.current.disconnect();
-  //     observer.current = new IntersectionObserver(
-  //       (entries) => {
-  //         if (entries[0].isIntersecting) {
-  //           // console.count();
-  //           console.log(questionObj.data().question);
-  //           node.classList.add("Q-box-transition");
-  //           console.log("On the screen", node);
-  //         }
-  //       },
-  //       { rootMargin: "0px 0px -100px 0px" }
-  //     );
-  //     if (node) observer.current.observe(node);
-  //   },
-  //   [questionObj]
-  // );
+  const anotherQuestion = useCallback(
+    (node) => {
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            // console.count();
+            console.log(questionObj.data().question);
+            node.classList.add("Q-box-transition");
+            console.log("On the screen", node);
+          }
+        },
+        { rootMargin: "0px 0px -100px 0px" }
+      );
+      if (node) observer.current.observe(node);
+    },
+    [questionObj]
+  );
 
   const showAnswerOrNot = () => {
     if (isShowAnswers) return "show-answers";
@@ -65,7 +65,7 @@ export default function QuestionBox(props) {
 
   // ref = index + 1 adds a ref to the last component. Nescessary for intersection observer.
   return (
-    <div className="question-box" data-id={questionObj.id} ref={index === length - 4 ? lastQuestionOnScreen : null}>
+    <div className="question-box" data-id={questionObj.id} ref={index === length - 4 ? lastQuestionOnScreen : anotherQuestion}>
       <TagBar id={questionObj.id} tagsProp={questionObj.data().tags} questionObj={questionObj} handleEdit={handleEdit} />
       <div className="answer-click" onClick={() => setIsShowIndividualAnswer((prev) => !prev)}>
         {" "}
