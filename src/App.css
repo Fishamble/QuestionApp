@@ -5,6 +5,7 @@
 
 body {
   font-family: "Roboto Mono";
+  scroll-snap-type: y mandatory;
 }
 
 .header-spacer {
@@ -47,5 +48,4 @@ body {
 }
 
 .app {
-  scroll-snap-type: y mandatory;
 }
