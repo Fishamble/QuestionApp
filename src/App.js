@@ -39,7 +39,7 @@ function App() {
     <div className={isDarkMode ? "dark background" : "light"}>
       <Header />
       <div className="header-spacer"></div>
-      <div className="App">
+      <div className="app">
         {questions &&
           questions.map((q, index) => {
             return <QuestionBox key={q.id} questionObj={q} index={index} ref={lastQuestionOnScreen} length={questions.length} />;

@@ -45,3 +45,7 @@ body {
   --body-background-color: black;
   --button-add-tag-color: #f6f7f9;
 }
+
+.app {
+  scroll-snap-type: y mandatory;
+}
