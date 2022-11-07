@@ -40,7 +40,7 @@ export default function QuestionBox(props) {
           if (entries[0].isIntersecting) {
             // console.count();
             console.log(questionObj.data().question);
-            // node.classList.add("Q-box-transition");
+            node.classList.add("Q-box-transition");
             console.log("On the screen", node);
           }
         },
@@ -64,7 +64,7 @@ export default function QuestionBox(props) {
 
   // ref = index + 1 adds a ref to the last component. Nescessary for intersection observer.
   return (
-    <div className="question-box" data-id={questionObj.id} ref={index + 1 === length ? lastQuestionOnScreen : anotherQuestion}>
+    <div className="question-box" data-id={questionObj.id} ref={index === length - 4 ? lastQuestionOnScreen : anotherQuestion}>
       <TagBar id={questionObj.id} tagsProp={questionObj.data().tags} questionObj={questionObj} handleEdit={handleEdit} />
       <div className="answer-click" onClick={() => setIsShowIndividualAnswer((prev) => !prev)}>
         {" "}
