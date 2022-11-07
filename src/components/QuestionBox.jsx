@@ -63,7 +63,8 @@ export default function QuestionBox(props) {
     setShowModal(true);
   };
 
-  // ref = index + 1 adds a ref to the last component. Nescessary for intersection observer.
+  // ref = index -4 adds a ref to the fifth last component. Nescessary for intersection observer.
+  // and the implementation of infinite scroll
   return (
     <div className="question-box" data-id={questionObj.id} ref={index === length - 4 ? lastQuestionOnScreen : anotherQuestion}>
       <TagBar id={questionObj.id} tagsProp={questionObj.data().tags} questionObj={questionObj} handleEdit={handleEdit} />
