@@ -12,7 +12,7 @@
   min-height: 300px;
   position: relative;
   box-shadow: 3px 3px 5px;
-  /* transform: translate(-800px); */
+  transform: translate(-800px);
 }
 
 .Q-box-transition {
