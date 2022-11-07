@@ -74,7 +74,7 @@ export default function useFetchQuestion(more) {
     }
 
     // Testing
-    console.log(totalNoOfQuestions, " ", randomIDArray);
+    // console.log(totalNoOfQuestions, " ", randomIDArray);
     // Testing
   }, [more, searchTag, totalNoOfQuestions, setTotalNoOfQuestions, randomIDArray, setSearchTag]);
 
