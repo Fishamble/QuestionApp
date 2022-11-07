@@ -25,7 +25,7 @@ export default function QuestionBox(props) {
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
           setMore((prev) => prev + 1);
-          // node.classList.add("Q-box-transition");
+          node.classList.add("Q-box-transition");
         }
       });
       if (node) observer.current.observe(node);
