@@ -13,8 +13,8 @@ import { tagsContext } from "../Helpers-test/TagsContext";
 export default function useFetchQuestion(more) {
   const { totalNoOfQuestions, setTotalNoOfQuestions } = useContext(tagsContext);
   const { searchTag, setSearchTag } = useContext(tagsContext);
+  const { setQuestions } = useContext(tagsContext);
 
-  const [question, setQuestion] = useState([]);
   const [randomIDArray, setRandomIDArray] = useState([]);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function useFetchQuestion(more) {
           const result = await getDocs(q);
           output.push(result.docs[0]);
         }
-        setQuestion((prev) => [...prev, ...output]);
+        setQuestions((prev) => [...prev, ...output]);
       } catch (error) {
         console.log(error);
       }
@@ -53,7 +53,7 @@ export default function useFetchQuestion(more) {
     const getQuestionsByTag = async () => {
       const q = query(collection(db, "Questions1test"), where("tags", "array-contains", searchTag));
       const result = await getDocs(q);
-      setQuestion(result.docs);
+      setQuestions(result.docs);
     };
 
     //If invoked with a search tag
@@ -63,7 +63,7 @@ export default function useFetchQuestion(more) {
 
     //If tag selected is to show all
     if (searchTag && searchTag === "ShowAll") {
-      setQuestion(() => []); // removes rendered questions to avoid key duplication
+      setQuestions(() => []); // removes rendered questions to avoid key duplication
       setSearchTag(null);
       fetchQuestions();
     }
@@ -76,7 +76,5 @@ export default function useFetchQuestion(more) {
     // Testing
     // console.log(totalNoOfQuestions, " ", randomIDArray);
     // Testing
-  }, [more, searchTag, totalNoOfQuestions, setTotalNoOfQuestions, randomIDArray, setSearchTag]);
-
-  return question;
+  }, [more, searchTag, totalNoOfQuestions, setTotalNoOfQuestions, randomIDArray, setSearchTag, setQuestions]);
 }

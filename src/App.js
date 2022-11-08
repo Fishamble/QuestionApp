@@ -1,17 +1,23 @@
-import useFetchQuestion from "./Hooks/useFetchQuestion";
-
 import "./App.css";
+import { useState } from "react";
 
 import QuestionBox from "./components/QuestionBox.jsx";
 // import SearchBar from "./components/SearchBar";
 // import useFetchSearch from "./Hooks/useFetchSearch";
-import {  useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { tagsContext } from "./Helpers-test/TagsContext";
 import Header from "./components/Header";
 import WebFont from "webfontloader";
 
+//hooks
+import useFetchQuestion from "./Hooks/useFetchQuestion";
+
 function App() {
   const { isDarkMode } = useContext(tagsContext);
+  const { questions } = useContext(tagsContext);
+
+  const [more, setMore] = useState(1);
+  useFetchQuestion(more);
 
   useEffect(() => {
     WebFont.load({
@@ -21,9 +27,6 @@ function App() {
     });
   }, []);
 
-  const [more, setMore] = useState(1);
-  let questions = useFetchQuestion(more);
-
   return (
     <div className={isDarkMode ? "dark background" : "light"}>
       <Header />
@@ -31,7 +34,7 @@ function App() {
       <div className="app">
         {questions &&
           questions.map((q, index) => {
-            return <QuestionBox key={q.id} questionObj={q} index={index} length={questions.length} setMore={setMore}/>;
+            return <QuestionBox key={q.id} questionObj={q} index={index} length={questions.length} setMore={setMore} />;
           })}
         {!questions && <div>Loading...</div>}
       </div>
