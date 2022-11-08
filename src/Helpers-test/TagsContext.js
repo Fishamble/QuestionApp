@@ -12,6 +12,7 @@ export function TagsProvider({ children }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isShowAnswers, setIsShowAnswers] = useState(false);
   const [totalNoOfQuestions, setTotalNoOfQuestions] = useState(0);
+  const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
     const fetchListOfTags = async () => {
@@ -36,6 +37,8 @@ export function TagsProvider({ children }) {
         setSearchTag,
         isShowAnswers,
         setIsShowAnswers,
+        questions,
+        setQuestions,
       }}
     >
       {children}

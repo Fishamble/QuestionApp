@@ -43,11 +43,10 @@ export default function EditModal({ questionObj, setShowModal }) {
         <TagBar id={questionObj.id} tags={questionObj.data().tags} questionObj={questionObj} showEdit={false} />
         <div className="edit-wrapper">
           <form className="edit-form">
-            <label htmlFor="edit-question"></label>
             <input className="edit-question" type="text" onChange={(e) => setQuestion(e.target.value)} value={question} id="edit-question" />
 
-            <label htmlFor="edit-answer"></label>
             <textarea className="edit-answer" onChange={(e) => setAnswer(e.target.value)} value={answer} id="edit-answer" />
+
             <div className="edit-buttons">
               <button className="edit-button" onClick={() => setShowModal(false)}>
                 Cancel

@@ -19,37 +19,20 @@ export default function QuestionBox(props) {
 
   const observer = useRef();
 
-  const lastQuestionOnScreen = useCallback(
+  const questionOnScreen = useCallback(
     (node) => {
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
-          setMore((prev) => prev + 1);
+          if (index === length - 4) setMore((prev) => prev + 1); // When 4 left on screen, load more questions.
           node.classList.add("Q-box-transition");
+        } else {
+          node.classList.remove("Q-box-transition");
         }
       });
       if (node) observer.current.observe(node);
     },
-    [setMore]
-  );
-
-  const anotherQuestion = useCallback(
-    (node) => {
-      if (observer.current) observer.current.disconnect();
-      observer.current = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) {
-            // console.count();
-            console.log(questionObj.data().question);
-            node.classList.add("Q-box-transition");
-            console.log("On the screen", node);
-          }
-        },
-        { rootMargin: "0px 0px -100px 0px" }
-      );
-      if (node) observer.current.observe(node);
-    },
-    [questionObj]
+    [setMore, index, length]
   );
 
   const showAnswerOrNot = () => {
@@ -63,24 +46,24 @@ export default function QuestionBox(props) {
     setShowModal(true);
   };
 
-  // ref = index -4 adds a ref to the fifth last component. Nescessary for intersection observer.
-  // and the implementation of infinite scroll
   return (
-    <div className="question-box" data-id={questionObj.id} ref={index === length - 4 ? lastQuestionOnScreen : anotherQuestion}>
-      <TagBar id={questionObj.id} tagsProp={questionObj.data().tags} questionObj={questionObj} handleEdit={handleEdit} />
-      <div className="answer-click" onClick={() => setIsShowIndividualAnswer((prev) => !prev)}>
-        {" "}
-        {!isShowAnswers && !isShowIndividualAnswer && <div> Reveal answer.</div>}
-      </div>
-
-      <div>
-        <div className="question">
-          <div>{questionObj.data().question}</div>
-          <span style={{ fontSize: ".5em" }}>id:{questionObj.data().id}</span>
+    <>
+      <div className="question-box" data-id={questionObj.id} ref={questionOnScreen}>
+        <TagBar id={questionObj.id} tagsProp={questionObj.data().tags} questionObj={questionObj} handleEdit={handleEdit} />
+        <div className="answer-click" onClick={() => setIsShowIndividualAnswer((prev) => !prev)}>
+          {" "}
+          {!isShowAnswers && !isShowIndividualAnswer && <div> Reveal answer.</div>}
         </div>
-        <div className={showAnswerOrNot()}>{questionObj.data().answer}</div>
+
+        <div>
+          <div className="question">
+            <div>{questionObj.data().question}</div>
+            <span style={{ fontSize: ".5em" }}>id:{questionObj.data().id}</span>
+          </div>
+          <div className={showAnswerOrNot()}>{questionObj.data().answer}</div>
+        </div>
       </div>
       {showModal && <EditModal questionObj={questionObj} setShowModal={setShowModal} />}
-    </div>
+    </>
   );
 }
