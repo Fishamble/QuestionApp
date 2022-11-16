@@ -3,10 +3,7 @@
   min-height: 100vh;
 }
 
-body {
-  font-family: "Roboto Mono";
-  scroll-snap-type: y mandatory;
-}
+  
 
 .header-spacer {
   height: 130px;
@@ -46,4 +43,3 @@ body {
   --body-background-color: white;
   --button-add-tag-color: #f6f7f9;
 }
-

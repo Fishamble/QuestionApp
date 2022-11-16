@@ -42,18 +42,25 @@ export default function TagInput({ tags, setTags, id, setIsShowTagInput }) {
 
   return (
     <div className="tag-input">
-      <button onClick={handleClick}>Add</button>
-      <button onClick={() => setIsShowTagInput(false)}>Cancel</button>
-
-      <TagDropDown setTagInput={setTagInput} />
-      <input
-        type="text"
-        ref={cateogryInputRef}
-        className="input show"
-        placeholder="Add category tag"
-        onChange={(e) => setTagInput(e.target.value)}
-        value={tagInput}
-      ></input>
+      <div>
+        <button onClick={() => setIsShowTagInput(false)}>Cancel</button>
+      </div>
+      <div>
+        <TagDropDown setTagInput={setTagInput} />
+      </div>
+      <div>
+        <input
+          type="text"
+          ref={cateogryInputRef}
+          className="input show"
+          placeholder="Or create a new tag"
+          onChange={(e) => setTagInput(e.target.value)}
+          value={tagInput}
+        ></input>
+      </div>
+      <div>
+        <button onClick={handleClick}>Add</button>
+      </div>
     </div>
   );
 }
