@@ -8,9 +8,9 @@
 
 .tags-wrapper .tags {
   width: 100%;
-  /* background-color: blue; */
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .tags-wrapper .add {
@@ -27,11 +27,12 @@
 .tags-wrapper .input {
   display: none;
   width: 0px;
+  margin: 5px;
 }
 
 .tags-wrapper .show {
   display: block;
-  width: 20em;
+  width: 15em;
 }
 
 .tags-wrapper .tag {
@@ -47,14 +48,19 @@
 }
 
 .tags-wrapper .tag-input {
-  display: flex;
-  /* align-items: center; */
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px;
+  background-color: var(--header-button-hover-color);
+  z-index: 10;
+  border-radius: 5px;
+  max-width: 20em;
+  min-width: 224px;
 }
 
 .tags-wrapper .drop-down {
-  width: fit-content;
-  display: flex;
-  align-items: center;
+  margin: 5px;
 }
 
 .tags-wrapper .tags {
@@ -71,6 +77,10 @@
 .tags-wrapper .edit-font {
   margin: 1em;
   color: var(--button-add-tag-color);
+}
+
+.tags-wrapper button {
+  margin: 5px;
 }
 
 @media (max-width: 490px) {

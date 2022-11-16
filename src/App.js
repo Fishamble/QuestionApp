@@ -11,6 +11,7 @@ import WebFont from "webfontloader";
 
 //hooks
 import useFetchQuestion from "./Hooks/useFetchQuestion";
+import { divide } from "lodash";
 
 function App() {
   const { isDarkMode } = useContext(tagsContext);
