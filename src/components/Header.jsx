@@ -30,6 +30,9 @@ export default function Header() {
         >
           {isDarkMode && <MdWbSunny size="3em" />}
           {!isDarkMode && <CiDark size="3em" />}
+
+          {!isDarkMode && <span className="tooltiptext">Dark Mode</span>}
+          {isDarkMode && <span className="tooltiptext">Light Mode</span>}
         </div>
 
         <div
@@ -40,16 +43,28 @@ export default function Header() {
         >
           {isShowAnswers && <RiQuestionnaireFill size="3em" />}
           {!isShowAnswers && <RiQuestionnaireLine size="3em" />}
+
+          {isShowAnswers && <span className="tooltiptext">Hide all answers</span>}
+          {!isShowAnswers && <span className="tooltiptext">Show all answers</span>}
         </div>
+
         <div className="contact  circle">
           <AiOutlineMail size="3em" />
         </div>
         <div className="information  circle">
           <IoInformationCircleOutline size="4em" />
         </div>
-        <div className="account  circle">
+
+
+        <div className="account circle">
           <VscAccount size="3em" />
+          <span className="tooltiptext">Login</span>
         </div>
+
+
+
+
+
         <div className="new-question  circle">
           <CgAdd size="3.5em" />
         </div>
