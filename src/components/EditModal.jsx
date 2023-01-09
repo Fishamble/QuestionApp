@@ -16,19 +16,23 @@ export default function EditModal({ questionObj, setShowModal }) {
     e.preventDefault();
 
     //backup the exisiting quesiton/answer to seperate collection
-    await addDoc(collection(db, "QuestionsModified"), {
-      question: questionObj.data().question,
-      answer: questionObj.data().answer,
-      id: questionObj.data().id,
-      modifiedAt: new Date(),
-    });
+    try {
+      await addDoc(collection(db, "QuestionsModified"), {
+        question: questionObj.data().question,
+        answer: questionObj.data().answer,
+        id: questionObj.data().id,
+        modifiedAt: new Date(),
+      });
 
-    //update the edited document
-    const docRef = doc(db, "Questions1test", questionObj.id);
-    await updateDoc(docRef, {
-      question: question,
-      answer: answer,
-    });
+      //update the edited document
+      const docRef = doc(db, "Questions1test", questionObj.id);
+      await updateDoc(docRef, {
+        question: question,
+        answer: answer,
+      });
+    } catch (err) {
+      console.log(err);
+    }
 
     setShowModal(false);
   };
