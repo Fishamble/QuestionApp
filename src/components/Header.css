@@ -125,3 +125,7 @@
   visibility: visible;
   top: 95px;
 }
+
+.logged-in-out {
+  position: absolute;
+}

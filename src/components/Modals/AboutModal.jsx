@@ -1,4 +1,5 @@
 import "./AboutModal.css";
+import { AiOutlineGithub } from "react-icons/ai";
 
 export default function AboutModal({ setIsShowAboutModal }) {
   const handleBrClick = () => {
@@ -30,6 +31,13 @@ export default function AboutModal({ setIsShowAboutModal }) {
             <li>
               Along the way I learned about firestore and the basics of auth. In react I implemented basic global state, using the useContext hook.
             </li>
+            <li>The app is hosted on netlify.</li>
+
+            <a href="https://github.com/Fishamble/QuestionApp">
+              <li>
+                <AiOutlineGithub size="1.5em" /> See the code on github.
+              </li>
+            </a>
           </ul>
         </div>
         <div className="button-wrapper">

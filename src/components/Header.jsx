@@ -71,8 +71,8 @@ export default function Header() {
     <div className="header-wrapper">
       {isShowAboutModal && <AboutModal setIsShowAboutModal={setIsShowAboutModal} />}
 
-      {auth.currentUser && <div>{auth.currentUser.displayName}</div>}
-      {!auth.currentUser && <div>logged out</div>}
+      {auth.currentUser && <div className="logged-in-out">{auth.currentUser.displayName}</div>}
+      {!auth.currentUser && <div className="logged-in-out">logged out</div>}
       <div className="header">
         <div
           className="dark-mode circle"
