@@ -14,6 +14,7 @@ export function TagsProvider({ children }) {
   const [isShowAnswers, setIsShowAnswers] = useState(false);
   const [totalNoOfQuestions, setTotalNoOfQuestions] = useState(0);
   const [questions, setQuestions] = useState([]);
+  const [isShowNotLoggedInModal, setIsShowNotLoggedInModal] = useState(false);
 
   useEffect(() => {
     const fetchListOfTags = async () => {
@@ -40,6 +41,8 @@ export function TagsProvider({ children }) {
         setIsShowAnswers,
         questions,
         setQuestions,
+        isShowNotLoggedInModal,
+        setIsShowNotLoggedInModal,
       }}
     >
       {children}

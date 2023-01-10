@@ -1,16 +1,19 @@
 //firestore
-import {db} from "../../Hooks/FirebaseConfig";
+import { db } from "../../Hooks/FirebaseConfig";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 
 import TagDropDown from "./TagDropDown";
+import { tagsContext } from "../../Helpers-test/TagsContext";
+
+import { auth } from "../../Hooks/FirebaseConfig"
 
 export default function TagInput({ tags, setTags, id, setIsShowTagInput }) {
   const [tagInput, setTagInput] = useState("");
   const cateogryInputRef = useRef(null);
 
-  console.log(tagInput);
+  const { setIsShowNotLoggedInModal } = useContext(tagsContext);
 
   // Set focus on the input button
   useEffect(() => {
@@ -32,7 +35,10 @@ export default function TagInput({ tags, setTags, id, setIsShowTagInput }) {
   };
 
   const handleClick = () => {
-    if (tagInput && !tags.includes(tagInput)) {
+
+    if(auth.currentUser === null){
+      setIsShowNotLoggedInModal(true);
+    } else if (tagInput && !tags.includes(tagInput)) {
       addCategoryTag(tagInput);
       setTagInput("");
       setTags((prev) => [...prev, tagInput]);
