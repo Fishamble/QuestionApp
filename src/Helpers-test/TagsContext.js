@@ -10,11 +10,14 @@ export const tagsContext = createContext([]);
 export function TagsProvider({ children }) {
   const [tagsList, setTagsList] = useState([]);
   const [searchTag, setSearchTag] = useState("");
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isShowAnswers, setIsShowAnswers] = useState(false);
+
   const [totalNoOfQuestions, setTotalNoOfQuestions] = useState(0);
   const [questions, setQuestions] = useState([]);
   const [isShowNotLoggedInModal, setIsShowNotLoggedInModal] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isShowAnswers, setIsShowAnswers] = useState(false);
+
+
 
   useEffect(() => {
     const fetchListOfTags = async () => {
@@ -31,18 +34,16 @@ export function TagsProvider({ children }) {
       value={{
         totalNoOfQuestions,
         setTotalNoOfQuestions,
-        isDarkMode,
-        setIsDarkMode,
         tagsList,
         setTagsList,
         searchTag,
         setSearchTag,
-        isShowAnswers,
-        setIsShowAnswers,
         questions,
         setQuestions,
         isShowNotLoggedInModal,
         setIsShowNotLoggedInModal,
+        isDarkMode, setIsDarkMode,
+        isShowAnswers, setIsShowAnswers
       }}
     >
       {children}
