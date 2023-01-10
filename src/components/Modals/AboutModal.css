@@ -1,0 +1,35 @@
+.about-modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(128, 128, 128, 0.95);
+  z-index: 99;
+}
+
+.about-box {
+  overflow: hidden;
+  background-color: var(--qbox-background-color);
+  width: 90vw;
+  font-size: 25px;
+  color: var(--qbox-text-color);
+  border-radius: 20px;
+  margin: auto;
+  margin-top: 5vw;
+  height: 80vh;
+}
+
+.about-text {
+  padding: 1em;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-wrapper button {
+  margin-right: 5em;
+  font-size: 20px;
+}
