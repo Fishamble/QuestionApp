@@ -3,7 +3,7 @@ import { useState } from "react";
 //css
 import "./EditModal.css";
 //firebase
-import db from "../Hooks/FirebaseConfig";
+import { db } from "../Hooks/FirebaseConfig";
 import { doc, updateDoc, collection, addDoc } from "firebase/firestore";
 //components
 import TagBar from "./TagBar/TagBar";

@@ -2,9 +2,8 @@ import questionFile from "../Assets/questions1.txt";
 
 import { useEffect } from "react";
 
-import db from "./FirebaseConfig";
+import { db } from "./FirebaseConfig";
 import { collection, addDoc } from "@firebase/firestore";
-
 
 export default function useParseQuestions() {
   useEffect(() => {

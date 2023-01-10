@@ -1,4 +1,4 @@
-import db from "./FirebaseConfig";
+import {db} from "./FirebaseConfig";
 import { useEffect } from "react";
 import {  getDocs, collection, updateDoc, doc } from "firebase/firestore";
 
