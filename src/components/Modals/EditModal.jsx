@@ -1,16 +1,20 @@
 //react
-import { useState } from "react";
+import { useState, useContext } from "react";
 //css
 import "./EditModal.css";
 //firebase
-import { db } from "../Hooks/FirebaseConfig";
+import { db } from "../../Hooks/FirebaseConfig";
 import { doc, updateDoc, collection, addDoc } from "firebase/firestore";
 //components
-import TagBar from "./TagBar/TagBar";
+import TagBar from "../TagBar/TagBar";
+//context
+import { tagsContext } from "../../Helpers-test/TagsContext";
 
 export default function EditModal({ questionObj, setShowModal }) {
   const [question, setQuestion] = useState(questionObj.data().question);
   const [answer, setAnswer] = useState(questionObj.data().answer);
+
+  const { setIsShowNotLoggedInModal } = useContext(tagsContext);
 
   const handleEdit = async (e) => {
     e.preventDefault();
@@ -31,7 +35,7 @@ export default function EditModal({ questionObj, setShowModal }) {
         answer: answer,
       });
     } catch (err) {
-      console.log(err);
+      setIsShowNotLoggedInModal(true);
     }
 
     setShowModal(false);

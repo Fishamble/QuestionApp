@@ -6,7 +6,7 @@ import { tagsContext } from "../Helpers-test/TagsContext";
 import { useRef, useCallback, useContext, useState } from "react";
 //components
 import TagBar from "./TagBar/TagBar";
-import EditModal from "./EditModal";
+import EditModal from "./Modals/EditModal";
 
 //forward ref required to add intersetion observer
 export default function QuestionBox(props) {
@@ -42,7 +42,6 @@ export default function QuestionBox(props) {
   };
 
   const handleEdit = () => {
-    console.log(questionObj.data().question);
     setShowModal(true);
   };
 

@@ -1,0 +1,33 @@
+.error-modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(128, 128, 128, 0.95);
+  z-index: 99;
+}
+
+.message-box {
+  overflow: hidden;
+  background-color: var(--qbox-background-color);
+  width: 90vw;
+  font-size: 25px;
+  color: var(--qbox-text-color);
+  border-radius: 20px;
+  margin: auto;
+  margin-top: 5vw;
+  height: 20vh;
+}
+.error-text {
+  padding: 1em;
+}
+
+.cancel-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.cancel-wrapper button {
+  font-size: 20px;
+}

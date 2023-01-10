@@ -11,13 +11,16 @@ import WebFont from "webfontloader";
 
 //hooks
 import useFetchQuestion from "./Hooks/useFetchQuestion";
-
+import LogInModal from "./components/Modals/LogInModal";
 
 function App() {
   const { isDarkMode } = useContext(tagsContext);
   const { questions } = useContext(tagsContext);
 
   const [more, setMore] = useState(1);
+
+  const { isShowNotLoggedInModal } = useContext(tagsContext);
+
   useFetchQuestion(more);
 
   useEffect(() => {
@@ -30,6 +33,7 @@ function App() {
 
   return (
     <div className={isDarkMode ? "dark background" : "light"}>
+      {isShowNotLoggedInModal && <LogInModal />}
       <Header />
       <div className="header-spacer"></div>
       <div className="app">
