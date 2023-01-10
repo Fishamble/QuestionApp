@@ -1,5 +1,5 @@
 //firestore
-import db from "../../Hooks/FirebaseConfig";
+import {db} from "../../Hooks/FirebaseConfig";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 
 import { useState, useEffect, useRef } from "react";
